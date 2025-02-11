@@ -2,7 +2,7 @@
 
 ## Local
 El repositorio se puede clonar y así podrán usarlo como cualquier proyecto de
-LATeX en su compu, recuerden sincronizar los cambios.
+LaTeX en su compu, recuerden sincronizar los cambios.
 
 ## En el navegador
 Para editar y compilar desde el navegador hay que crear un *codespace* desde el
@@ -16,4 +16,4 @@ teclado `ctrl + alt + b`. Al menos en mi caso el botón es muy chico y mis dedos
 son muy gordos...
 
 La primera vez que abren el pdf se tarda un poco y abre una pestaña. Después ya
-es igual que en la compu, una pestaña que tiene el pdf.
+es igual que en la compu, una pestaña de vscode que tiene el pdf.
