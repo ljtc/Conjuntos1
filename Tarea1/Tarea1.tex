@@ -3,6 +3,13 @@
 \usepackage{kantlipsum}
 \usepackage{xsim}
 
+\SetExerciseParameters{exercise}{
+  exercise-name = Ejercicio,
+  exercise-heading = \paragraph
+}
+
+\newcommand{\topos}[1]{\mathcal{#1}}
+
 \title{Tarea n}
 \author{Teoría de Conjuntos 1}
 \date{\today}
@@ -15,7 +22,15 @@
 
 \section{Conjuntos Abstractos}
 \begin{exercise}
+    Muestra que toda flecha de la forma \(1\to A\) (con dominio el terminal) es mono.
+\end{exercise}
+
+\begin{exercise}
     Demuestra que si \(T\) tiene un elemento global entonces es separador.
+\end{exercise}
+
+\begin{exercise}
+    Demuestra, en \(\topos{S}\), que mono es equivalente a inyectiva.
 \end{exercise}
 
 \end{document}
