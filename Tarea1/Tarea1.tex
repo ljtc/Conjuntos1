@@ -22,6 +22,13 @@
   exercise-heading = \paragraph
 }
 
+\DeclareExerciseTagging{teca}
+\DeclareExerciseTagging{tezfc}
+\xsimsetup{collect}
+
+\DeclareExerciseCollection[teca=1]{ca}
+\DeclareExerciseCollection[tezfc=1]{zfc}
+
 % Para escribir el "tal que" de los conjuntos
 \providecommand\st{}
 
@@ -69,161 +76,19 @@
     Los ejercicios de esta sección se deben resolver en la categoría de
     conjuntos abstractos, \(\topos{S}\), a menos que se indique lo contrario.
 
-    \begin{exercise}
-        Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es 
-        inyectiva.
-    \end{exercise}
-
-    \begin{exercise}
-        Una flecha \(f\colon A\to B\) es constante si se puede factorizar a
-        través del terminal, es decir, existe \(b\colon 1\to B\) que hace
-        conmutar al siguiente diagrama
-        \begin{equation*}
-            \begin{tikzcd}[ampersand replacement=\&] 
-                A\ar{rr}{f}\ar{dr}[swap]{!_A} \&\& B\\
-                \& 1\mathrlap{.}\ar{ur}[swap]{b}
-            \end{tikzcd}
-        \end{equation*}
-        Muestra que \(f\colon A\to B\) es constante si y sólo si para
-        cualesquiera \(a_1,a_2\colon 1\to A\) se satisface \(fa_1 = fa_2\).
-    \end{exercise}
-
-    \begin{exercise}
-        Sean \(f\colon A\to B\) y \(g\colon B\to C\) flechas. Demuestra lo
-        siguiente:
-        \begin{tasks}(2)
-            \task Si \(f\) y \(g\) son epi, entonces \(gf\) es epi.
-            \task Si \(gf\) es epi, entonces \(g\) es epi.
-        \end{tasks}
-    \end{exercise}
-
-    \begin{exercise}
-        Sea \(\cat{P}\) la categoría generada por el orden parcial \((P,\leq)\).
-        Muestra que toda flecha en \(\cat{P}\) es mono y epi. Con esto, da un
-        ejemplo de una categoría en la que no se cumple que mono y epi implica iso.
-    \end{exercise}
-
-    \begin{exercise}
-        Dadas una categoría \(\cat{A}\) y un objeto \(A\in\cat{A}\), se define
-        la categoría rebanada  \(\cat{A}/A\) mediante lo siguiente: los objetos
-        son flechas en \(\cat{A}\) de la forma \(f\colon X\to A\) y dados
-        dos objetos \(f\colon X\to A\) y \(g\colon Y\to A\), una flecha de
-        \(f\) a \(g\) es una flecha \(h\colon X\to Y\) en \(\cat{A}\) tal que
-        \(g = hf\). Demuestra que \(\cat{A}/A\) es una categoría.
-    \end{exercise}
-
-    \begin{exercise}
-        Muestra que para cualquier objeto \(A\), la rebanada \(\topos{S}/A\)
-        tiene objetos terminal e inicial.
-    \end{exercise}
-
-    \begin{exercise}
-        Sea \(m\colon S\rightarrowtail A\) un subobjeto y considera su flecha
-        característica \(\chi_m\colon A\to \Omega\). Demuestra que para
-        cualquier elemento generalizado \(x\colon X\to A\) se satisface:
-        \begin{equation*}
-            x\in_A m \iff \chi_m x = v_X,
-        \end{equation*}
-        donde \(v_X\) es la composición de \(!_X\colon X\to 1\) con 
-        \(v\colon 1\to \Omega\).
-    \end{exercise}
-
-    \begin{exercise}
-        Sean \(f\colon A\to B\) y \(n\colon T\rightarrowtail B\). Usa el lema
-        del producto fibrado para encontrar la característica de la imagen
-        inversa \(f^{-1}n\).
-    \end{exercise}
-
-
-    \newpage
+    \collectexercises{ca}
+    \xsimsetup{teca=1}
+    \input{../ca.tex}
+    \collectexercisesstop{ca}
+    \printcollection{ca}
+    
 
     \section*{ZFC}
-    \subsection*{Fórmulas y Clases}
+    \collectexercises{zfc}
+    \xsimsetup{tezfc=1}
+    \input{../zfc.tex}
+    \collectexercisesstop{zfc}
+    \printcollection{zfc}
 
-    \begin{exercise}
-        Los siguientes enunciados son versiones ``débiles'' de los axiomas de par y potencia, respectivamente. Demuestra que éstos son equivalentes a sus contrapartes, los axiomas ``no débiles'' del par y potencia, respectivamente. En cada inciso indica claramente cuáles axiomas de ZFC se utilizan para probar la equivalencia.
-        \begin{enumerate}[i)]
-            \item \(\forall x \forall y \exists p \forall w ( (w=x \lor w=y) \to w \in p ) \) es al axioma débil del par.
-            \item \(\forall x \exists p \forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\) es el axioma débil del potencia.
-        \end{enumerate}
-    \end{exercise}
-
-    \begin{exercise}
-        Sea \(A\) un conjunto. Da condiciones necesarias y suficientes sobre cómo debe ser \(A\) para que la cualesquiera \(\Set{x \st \forall z \forall y((z \in A \land y \in z) \to x \in y)}\) sea conjunto.
-    \end{exercise}
-
-    \begin{exercise}
-        Para cada inciso escribe una fórmula de primer orden en la teoría de conjuntos que describa el correspondiente concepto. En las fórmulas \textit{únicamente} se pueden utilizar símbolos lógicos, paréntesis, cuantificadores, variables y el símolo `\(\in\)'; sin abreviaturas de lenguaje como `\(\subseteq\)', `\(x=\emptyset\)', `\(x=\set{y}\)', etcétera. Se puede abreviar una fórmuila \textit{sólo si} ésta ya se escribió en un inciso anterior.
-        \begin{multicols}{2}
-            \begin{enumerate}[i)]
-                \item \(x\) es el conjunto par de \(y\) y \(z\).
-                \item \(x\) es el par ordenado de \(y\) y \(z\).
-                \item \(x\) es par ordenado.
-                \item \(x\) es la primera entrada del par ordenado \(y\).
-                \item \(x\) es la segunda entrada de un par ordenado.
-                \item \(x\) es una relación.
-                \item \(x\) es el dominio de la relación \(y\).
-                \item \(x\) es el campo de la relación \(y\).
-                \item \(x=0\).
-                \item \(x=1\).
-                \item \(x=4\).
-                \item \(x\) es la intersección de \(y\).
-                \item \(x\) es elemento de la intersección de \(y\).
-                \item \(x\) es la intersección de la intersección de \(y\).
-            \end{enumerate}
-        \end{multicols}
-        Sólo hay que dar las fórmula, no es necesario ningún tipo de justificación.
-    \end{exercise}
-
-    
-    \subsection*{Conjuntos y álgebra de conjuntos}
-    
-
-    \begin{exercise}
-        Es un hecho que todas las colecciones de este ejercicio son conjuntos. Demuestra o refuta (con un contraejemplo) cuatro de los siguientes incisos, prueba todas tus afirmaciones.
-        \begin{multicols}{2}
-            \begin{enumerate}[i)]
-                \item \( \bigcup \set{\set{x},\set{y}}=\set{x,y} \).
-                \item \( \bigcup\bigcup\bigcup\set{\set{\set{x}}} = x \).
-                \item \( \bigcup \set{x}=\emptyset \) y $x=\emptyset$ son equivalentes.
-                \item Se da la igualdad \( (x,y)=(a,b) \) únicamente si \(x=a\) y \(y=b\).
-                \item \( \set{x,y}=\set{a,b} \) si y sólo si $x=a$ y $y=b$.
-                \item \( \ms{P}(\emptyset)=\set{\emptyset} \).
-                \item \( \set{\emptyset,\set{\emptyset}} \notin \set{\emptyset,\set{\emptyset}} \).
-                \item Se tiene \( \set{\set{x},\set{x,y},\set{x,y,z}} = \set{\set{a},\set{a,b},\set{a,b,c}} \) sólo cuando \(x=a\), \(y=b\) y \(z=c\).
-                
-            \end{enumerate}
-        \end{multicols}
-    \end{exercise}
-
-    \begin{exercise}
-        Determina cuales de las siguientes afirmaciones son verdaderas, justifica tu respuesta con una demostración o un contraejemplo. Demuestra todas tus afirmaciones.
-        \begin{enumerate}[i)]
-            \item Para todo conjunto \(x\) existe un conjunto \(y\) tal que \(x \not\subseteq y\)
-            \item Para todo conjunto \(x\) existe un conjunto \(y\) tal que \(x \notin y\)
-        \end{enumerate}
-    \end{exercise}
-
-    \begin{exercise}
-        Todas las colecciones de este ejercicio son conjuntos. Prueba dos de los siguientes incisos:
-        \begin{enumerate}[i)]
-            \item \(x \subseteq \ms{P}(y)\) si y sólo si \(\bigcup x \subseteq y\).
-            \item Si \(x \neq \emptyset\), \(y \in \bigcap\Set{\ms{P}(a) \st a \in x}\) ocurre sólo si \(y \subseteq \bigcup x\).
-            \item \( \bigcup \Set{ \ms{P}(a) \st a \in x } \subseteq \ms{P}(\bigcup x) \) pero no siempre \( \bigcup \Set{ \ms{P}(a) \st a \in x } \neq \ms{P}(\bigcup x) \).
-            \item \( ( \bigcup x \big) \cap ( \bigcup y ) = \bigcup \Set{ a \cap b \st (a,b) \in x \times y } \).
-        \end{enumerate}
-    \end{exercise}
-
-    \begin{exercise}
-        Sean $X,Y, \ms{F}$ conjuntos tales que $\ms{F}\neq \emptyset$ y $f\colon X\to Y$ una función. Demuestra que las siguientes clases son conjuntos
-        \begin{enumerate}[i)]
-            \item $\Class{\bigcup \ms{G}\st \ms{G}\in \ms{F}}$
-            \item $\Class{x \st \exists v \exists w \exists y \exists z (v\in \ms{F} \wedge w\in v \wedge y \in w \wedge z \in y \wedge x \in z)}$
-            \item $\Class{x \st \forall \ms{G} \in \ms{F} \exists A \in \ms{G} (x\in A)}$
-            \item $\Class{\ms{P}(A)\st A\in \ms{F}}$
-            \item $\Class{A\times \ms{P}(A)\st A\in \ms{F}}$
-            \item $\Class{B\setminus(f[A])\st A\subseteq X \wedge B\in \ms{F}}$
-        \end{enumerate}
-    \end{exercise}
 
 \end{document}

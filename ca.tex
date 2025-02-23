@@ -1,0 +1,64 @@
+\begin{exercise}[teca=1]
+  Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es 
+  inyectiva.
+\end{exercise}
+
+\begin{exercise}
+  Una flecha \(f\colon A\to B\) es constante si se puede factorizar a
+  través del terminal, es decir, existe \(b\colon 1\to B\) que hace
+  conmutar al siguiente diagrama
+  \begin{equation*}
+      \begin{tikzcd}[ampersand replacement=\&] 
+          A\ar{rr}{f}\ar{dr}[swap]{!_A} \&\& B\\
+          \& 1\mathrlap{.}\ar{ur}[swap]{b}
+      \end{tikzcd}
+  \end{equation*}
+  Muestra que \(f\colon A\to B\) es constante si y sólo si para
+  cualesquiera \(a_1,a_2\colon 1\to A\) se satisface \(fa_1 = fa_2\).
+\end{exercise}
+
+\begin{exercise}
+  Sean \(f\colon A\to B\) y \(g\colon B\to C\) flechas. Demuestra lo
+  siguiente:
+  \begin{tasks}(2)
+      \task Si \(f\) y \(g\) son epi, entonces \(gf\) es epi.
+      \task Si \(gf\) es epi, entonces \(g\) es epi.
+  \end{tasks}
+\end{exercise}
+
+\begin{exercise}
+  Sea \(\cat{P}\) la categoría generada por el orden parcial \((P,\leq)\).
+  Muestra que toda flecha en \(\cat{P}\) es mono y epi. Con esto, da un
+  ejemplo de una categoría en la que no se cumple que mono y epi implica iso.
+\end{exercise}
+
+\begin{exercise}
+  Dadas una categoría \(\cat{A}\) y un objeto \(A\in\cat{A}\), se define
+  la categoría rebanada  \(\cat{A}/A\) mediante lo siguiente: los objetos
+  son flechas en \(\cat{A}\) de la forma \(f\colon X\to A\) y dados
+  dos objetos \(f\colon X\to A\) y \(g\colon Y\to A\), una flecha de
+  \(f\) a \(g\) es una flecha \(h\colon X\to Y\) en \(\cat{A}\) tal que
+  \(g = hf\). Demuestra que \(\cat{A}/A\) es una categoría.
+\end{exercise}
+
+\begin{exercise}
+  Muestra que para cualquier objeto \(A\), la rebanada \(\topos{S}/A\)
+  tiene objetos terminal e inicial.
+\end{exercise}
+
+\begin{exercise}[teca=1]
+  Sea \(m\colon S\rightarrowtail A\) un subobjeto y considera su flecha
+  característica \(\chi_m\colon A\to \Omega\). Demuestra que para
+  cualquier elemento generalizado \(x\colon X\to A\) se satisface:
+  \begin{equation*}
+      x\in_A m \iff \chi_m x = v_X,
+  \end{equation*}
+  donde \(v_X\) es la composición de \(!_X\colon X\to 1\) con 
+  \(v\colon 1\to \Omega\).
+\end{exercise}
+
+\begin{exercise}
+  Sean \(f\colon A\to B\) y \(n\colon T\rightarrowtail B\). Usa el lema
+  del producto fibrado para encontrar la característica de la imagen
+  inversa \(f^{-1}n\).
+\end{exercise}
