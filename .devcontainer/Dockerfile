@@ -19,6 +19,7 @@
       texlive-extra-utils \
       texlive-latex-extra \
       biber chktex latexmk make python3-pygments python3-pkg-resources \
+      texlive-lang-spanish \
       texlive-lang-chinese \
       texlive-lang-japanese
   
