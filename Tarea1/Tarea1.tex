@@ -1,13 +1,15 @@
 \documentclass[10pt]{article}
 \usepackage[spanish,mexico]{babel}
 \usepackage[letterpaper, DIV=classic]{typearea}
-%\usepackage{gfsartemisia-euler}
-%\usepackage[T1]{fontenc}
+\usepackage{gfsartemisia-euler}
+\usepackage[T1]{fontenc}
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{xsim}
+\usepackage{titlesec} %Para cambiar estilo de secciones,subsecciones,etc.
+\usepackage{titling} %Para cambiar estilo de título
 
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
@@ -18,7 +20,7 @@
 }
 
 % Para escribir el "tal que" de los conjuntos
-\providecommand\given{}
+\providecommand\st{}
 
 \newcommand\SetSymbol[1][]{%
     \nonscript\:#1\vert
@@ -26,30 +28,36 @@
     \nonscript\:
     \mathopen{}}
     \DeclarePairedDelimiterX\Set[1]\{\}{%
-    \renewcommand\given{\SetSymbol[\delimsize]}
+    \renewcommand\st{\SetSymbol[\delimsize]}
     #1
 }
 
 %Comandos que utilizamos
 \newcommand{\topos}[1]{\mathcal{#1}}
 \newcommand{\op}{{}^{\mathrm{op}}}
-\newcommand{\leqop}{\mathrel{\mathord{\leq}\op}}
+\newcommand{\leqop}{\leq^{\mathrm{op}}}
 \newcommand{\set}[1]{\{#1\}}
 \newcommand{\ms}[1]{\mathscr{#1}}
 \renewcommand{\emptyset}{\varnothing}
 
+%Estilo de secciones
+\titleformat*{\section}{\raggedleft\bfseries\Large}
+\titleformat*{\subsection}{\raggedleft\bfseries\large}
+
+%Estilo de título
+\pretitle{\begin{center}\fontfamily{lmdh}\huge\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
 
 
-\title{Tarea 1}
-\author{Teoría de Conjuntos 1}
-\date{\today}
+\title{Primera Tarea-Examen}
+\author{}
+\date{}
 
 \begin{document}
     \maketitle
 
-    \begin{flushright}
-        \section*{Conjuntos Abstractos}
-    \end{flushright}
+    \section*{Conjuntos Abstractos}
+    
     \begin{exercise}
         Sean \(\topos{C}\) una categoría con objeto terminal $1$ y sea \(A \in \topos{C}\) un objeto. Muestra que toda flecha de la forma \(m:1\to A\) es mono.
     \end{exercise}
@@ -59,15 +67,15 @@
     \end{exercise}
 
     \begin{exercise}
-        Sean \(\topos{S}\) la categoría de conjuntos abstractos y \(A \xrightarrow{f} B \in \topos{S}\). Demuestra que $f$ es mono si y sólo si $f$ es inyectiva. Es decir, en \(\topos{S}\), mono es equivalente a inyectiva. 
+        Sean \(\topos{S}\) la categoría de conjuntos abstractos y \(f\colon A\to B \in \topos{S}\). Demuestra que $f$ es mono si y sólo si $f$ es inyectiva. Es decir, en \(\topos{S}\), mono es equivalente a inyectiva. 
     \end{exercise}
 
 
     \newpage
-    \begin{flushright}
-        \section*{ZFC}
-        \subsection*{Fórmulas y Clases}
-    \end{flushright}
+
+    \section*{ZFC}
+    \subsection*{Fórmulas y Clases}
+
     \begin{exercise}
         Los siguientes enunciados son versiones ``débiles'' de los axiomas de par y potencia, respectivamente. Demuestra que éstos son equivalentes a sus contrapartes, los axiomas ``no débiles'' del par y potencia, respectivamente. En cada inciso indica claramente cuáles axiomas de ZFC se utilizan para probar la equivalencia.
         \begin{enumerate}[i)]
@@ -77,7 +85,7 @@
     \end{exercise}
 
     \begin{exercise}
-        Sea \(A\) un conjunto. Da condiciones necesarias y suficientes sobre cómo debe ser \(A\) para que la cualesquiera \(\Set{x \given \forall z \forall y((z \in A \land y \in z) \to x \in y)}\) sea conjunto.
+        Sea \(A\) un conjunto. Da condiciones necesarias y suficientes sobre cómo debe ser \(A\) para que la cualesquiera \(\Set{x \st \forall z \forall y((z \in A \land y \in z) \to x \in y)}\) sea conjunto.
     \end{exercise}
 
     \begin{exercise}
@@ -103,9 +111,9 @@
         Sólo hay que dar las fórmula, no es necesario ningún tipo de justificación.
     \end{exercise}
 
-    \begin{flushright}
-        \subsection*{Conjuntos y álgebra de conjuntos}
-    \end{flushright}
+    
+    \subsection*{Conjuntos y álgebra de conjuntos}
+    
 
     \begin{exercise}
         Es un hecho que todas las colecciones de este ejercicio son conjuntos. Demuestra o refuta (con un contraejemplo) cuatro de los siguientes incisos, prueba todas tus afirmaciones.
@@ -136,9 +144,9 @@
         Todas las colecciones de este ejercicio son conjuntos. Prueba dos de los siguientes incisos:
         \begin{enumerate}[i)]
             \item \(x \subseteq \ms{P}(y)\) si y sólo si \(\bigcup x \subseteq y\).
-            \item Si \(x \neq \emptyset\), \(y \in \bigcap\Set{\ms{P}(a) \given a \in x}\) ocurre sólo si \(y \subseteq \bigcup x\).
-            \item \( \bigcup \Set{ \ms{P}(a) \given a \in x } \subseteq \ms{P}(\bigcup x) \) pero no siempre \( \bigcup \Set{ \ms{P}(a) \given a \in x } \neq \ms{P}(\bigcup x) \).
-            \item \( ( \bigcup x \big) \cap ( \bigcup y ) = \bigcup \Set{ a \cap b \given (a,b) \in x \times y } \).
+            \item Si \(x \neq \emptyset\), \(y \in \bigcap\Set{\ms{P}(a) \st a \in x}\) ocurre sólo si \(y \subseteq \bigcup x\).
+            \item \( \bigcup \Set{ \ms{P}(a) \st a \in x } \subseteq \ms{P}(\bigcup x) \) pero no siempre \( \bigcup \Set{ \ms{P}(a) \st a \in x } \neq \ms{P}(\bigcup x) \).
+            \item \( ( \bigcup x \big) \cap ( \bigcup y ) = \bigcup \Set{ a \cap b \st (a,b) \in x \times y } \).
         \end{enumerate}
     \end{exercise}
 
