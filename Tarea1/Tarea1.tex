@@ -31,6 +31,11 @@
     \renewcommand\st{\SetSymbol[\delimsize]}
     #1
 }
+    \DeclarePairedDelimiterX\Class[1]\langle\rangle{%
+    \renewcommand\st{\SetSymbol[\delimsize]}
+    #1
+}
+
 
 %Comandos que utilizamos
 \newcommand{\topos}[1]{\mathcal{#1}}
@@ -147,6 +152,18 @@
             \item Si \(x \neq \emptyset\), \(y \in \bigcap\Set{\ms{P}(a) \st a \in x}\) ocurre sólo si \(y \subseteq \bigcup x\).
             \item \( \bigcup \Set{ \ms{P}(a) \st a \in x } \subseteq \ms{P}(\bigcup x) \) pero no siempre \( \bigcup \Set{ \ms{P}(a) \st a \in x } \neq \ms{P}(\bigcup x) \).
             \item \( ( \bigcup x \big) \cap ( \bigcup y ) = \bigcup \Set{ a \cap b \st (a,b) \in x \times y } \).
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        Sean $X,Y, \ms{F}$ conjuntos tales que $\ms{F}\neq \emptyset$ y $f\colon X\to Y$ una función. Demuestra que las siguientes clases son conjuntos
+        \begin{enumerate}[i)]
+            \item $\Class{\bigcup \ms{G}\st \ms{G}\in \ms{F}}$
+            \item $\Class{x \st \exists v \exists w \exists y \exists z (v\in \ms{F} \wedge w\in v \wedge y \in w \wedge z \in y \wedge x \in z)}$
+            \item $\Class{x \st \forall \ms{G} \in \ms{F} \exists A \in \ms{G} (x\in A)}$
+            \item $\Class{\ms{P}(A)\st A\in \ms{F}}$
+            \item $\Class{A\times \ms{P}(A)\st A\in \ms{F}}$
+            \item $\Class{B\setminus(f[A])\st A\subseteq X \wedge B\in \ms{F}}$
         \end{enumerate}
     \end{exercise}
 
