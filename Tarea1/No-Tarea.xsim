@@ -5,33 +5,33 @@
 \XSIM{totalgoal}{points}{0}
 \XSIM{goal}{exercise}{bonus-points}{0}
 \XSIM{totalgoal}{bonus-points}{0}
-\XSIM{order}{1||7||9||15}
+\XSIM{order}{1||2||3||4||5||6||7||8||9||10||11||12||13||14||15||16}
 \XSIM{use}{}
 \XSIM{use!}{}
-\XSIM{used}{exercise-2=={false}||exercise-3=={false}||exercise-4=={false}||exercise-5=={false}||exercise-6=={false}||exercise-8=={false}||exercise-1=={true}||exercise-7=={true}||exercise-10=={false}||exercise-11=={false}||exercise-12=={false}||exercise-13=={false}||exercise-14=={false}||exercise-16=={false}||exercise-9=={true}||exercise-15=={true}}
+\XSIM{used}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}||exercise-7=={true}||exercise-8=={true}||exercise-9=={true}||exercise-10=={true}||exercise-11=={true}||exercise-12=={true}||exercise-13=={true}||exercise-14=={true}||exercise-15=={true}||exercise-16=={true}}
 \XSIM{print}{}
 \XSIM{print!}{}
-\XSIM{printed}{exercise-2=={false}||exercise-3=={false}||exercise-4=={false}||exercise-5=={false}||exercise-6=={false}||exercise-8=={false}||exercise-1=={true}||exercise-7=={true}||exercise-10=={false}||exercise-11=={false}||exercise-12=={false}||exercise-13=={false}||exercise-14=={false}||exercise-16=={false}||exercise-9=={true}||exercise-15=={true}}
+\XSIM{printed}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}||exercise-7=={true}||exercise-8=={true}||exercise-9=={true}||exercise-10=={true}||exercise-11=={true}||exercise-12=={true}||exercise-13=={true}||exercise-14=={true}||exercise-15=={true}||exercise-16=={true}}
 \XSIM{total-number}{16}
-\XSIM{exercise}{4}
+\XSIM{exercise}{16}
 \XSIM{types}{exercise}
 \XSIM{idtypes}{1=={exercise}||2=={exercise}||3=={exercise}||4=={exercise}||5=={exercise}||6=={exercise}||7=={exercise}||8=={exercise}||9=={exercise}||10=={exercise}||11=={exercise}||12=={exercise}||13=={exercise}||14=={exercise}||15=={exercise}||16=={exercise}}
-\XSIM{collections}{exercise-1=={all exercises,ca}||exercise-2=={all exercises}||exercise-3=={all exercises}||exercise-4=={all exercises}||exercise-5=={all exercises}||exercise-6=={all exercises}||exercise-7=={all exercises,ca}||exercise-8=={all exercises}||exercise-9=={all exercises,zfc}||exercise-10=={all exercises}||exercise-11=={all exercises}||exercise-12=={all exercises}||exercise-13=={all exercises}||exercise-14=={all exercises}||exercise-15=={all exercises,zfc}||exercise-16=={all exercises}}
+\XSIM{collections}{exercise-1=={all exercises,ca}||exercise-2=={all exercises,ca}||exercise-3=={all exercises,ca}||exercise-4=={all exercises,ca}||exercise-5=={all exercises,ca}||exercise-6=={all exercises,ca}||exercise-7=={all exercises,ca}||exercise-8=={all exercises,ca}||exercise-9=={all exercises,zfc}||exercise-10=={all exercises,zfc}||exercise-11=={all exercises,zfc}||exercise-12=={all exercises,zfc}||exercise-13=={all exercises,zfc}||exercise-14=={all exercises,zfc}||exercise-15=={all exercises,zfc}||exercise-16=={all exercises,zfc}}
 \XSIM{collection:all exercises}{exercise-1||exercise-2||exercise-3||exercise-4||exercise-5||exercise-6||exercise-7||exercise-8||exercise-9||exercise-10||exercise-11||exercise-12||exercise-13||exercise-14||exercise-15||exercise-16}
 \setcounter{totalexerciseinall exercises}{16}
 \XSIM{id}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}||exercise-12=={12}||exercise-13=={13}||exercise-14=={14}||exercise-15=={15}||exercise-16=={16}}
 \XSIM{ID}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}||exercise-12=={12}||exercise-13=={13}||exercise-14=={14}||exercise-15=={15}||exercise-16=={16}}
-\XSIM{counter}{exercise-1=={1}||exercise-7=={2}||exercise-9=={3}||exercise-15=={4}}
-\XSIM{counter-value}{exercise-1=={1}||exercise-7=={2}||exercise-9=={3}||exercise-15=={4}}
+\XSIM{counter}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}||exercise-12=={12}||exercise-13=={13}||exercise-14=={14}||exercise-15=={15}||exercise-16=={16}}
+\XSIM{counter-value}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}||exercise-7=={7}||exercise-8=={8}||exercise-9=={9}||exercise-10=={10}||exercise-11=={11}||exercise-12=={12}||exercise-13=={13}||exercise-14=={14}||exercise-15=={15}||exercise-16=={16}}
 \XSIM{solution}{}
-\XSIM{section-value}{exercise-1=={0}||exercise-7=={0}||exercise-9=={0}||exercise-15=={0}}
-\XSIM{section}{exercise-1=={0}||exercise-7=={0}||exercise-9=={0}||exercise-15=={0}}
-\XSIM{sectioning}{exercise-1=={{0}{0}{0}{0}{0}}||exercise-7=={{0}{0}{0}{0}{0}}||exercise-9=={{0}{0}{0}{0}{0}}||exercise-15=={{0}{0}{0}{0}{0}}}
+\XSIM{section-value}{exercise-1=={0}||exercise-2=={0}||exercise-3=={0}||exercise-4=={0}||exercise-5=={0}||exercise-6=={0}||exercise-7=={0}||exercise-8=={0}||exercise-9=={0}||exercise-10=={0}||exercise-11=={0}||exercise-12=={0}||exercise-13=={0}||exercise-14=={0}||exercise-15=={0}||exercise-16=={0}}
+\XSIM{section}{exercise-1=={0}||exercise-2=={0}||exercise-3=={0}||exercise-4=={0}||exercise-5=={0}||exercise-6=={0}||exercise-7=={0}||exercise-8=={0}||exercise-9=={0}||exercise-10=={0}||exercise-11=={0}||exercise-12=={0}||exercise-13=={0}||exercise-14=={0}||exercise-15=={0}||exercise-16=={0}}
+\XSIM{sectioning}{exercise-1=={{0}{0}{0}{0}{0}}||exercise-2=={{0}{0}{0}{0}{0}}||exercise-3=={{0}{0}{0}{0}{0}}||exercise-4=={{0}{0}{0}{0}{0}}||exercise-5=={{0}{0}{0}{0}{0}}||exercise-6=={{0}{0}{0}{0}{0}}||exercise-7=={{0}{0}{0}{0}{0}}||exercise-8=={{0}{0}{0}{0}{0}}||exercise-9=={{0}{0}{0}{0}{0}}||exercise-10=={{0}{0}{0}{0}{0}}||exercise-11=={{0}{0}{0}{0}{0}}||exercise-12=={{0}{0}{0}{0}{0}}||exercise-13=={{0}{0}{0}{0}{0}}||exercise-14=={{0}{0}{0}{0}{0}}||exercise-15=={{0}{0}{0}{0}{0}}||exercise-16=={{0}{0}{0}{0}{0}}}
 \XSIM{subtitle}{}
 \XSIM{points}{}
 \XSIM{bonus-points}{}
-\XSIM{page-value}{exercise-1=={1}||exercise-7=={1}||exercise-9=={1}||exercise-15=={1}}
-\XSIM{page}{exercise-1=={1}||exercise-7=={1}||exercise-9=={1}||exercise-15=={1}}
+\XSIM{page-value}{exercise-1=={1}||exercise-2=={1}||exercise-3=={1}||exercise-4=={1}||exercise-5=={1}||exercise-6=={1}||exercise-7=={1}||exercise-8=={2}||exercise-9=={2}||exercise-10=={2}||exercise-11=={2}||exercise-12=={2}||exercise-13=={3}||exercise-14=={3}||exercise-15=={3}||exercise-16=={4}}
+\XSIM{page}{exercise-1=={1}||exercise-2=={1}||exercise-3=={1}||exercise-4=={1}||exercise-5=={1}||exercise-6=={1}||exercise-7=={1}||exercise-8=={2}||exercise-9=={2}||exercise-10=={2}||exercise-11=={2}||exercise-12=={2}||exercise-13=={3}||exercise-14=={3}||exercise-15=={3}||exercise-16=={4}}
 \XSIM{tags}{}
 \XSIM{topics}{}
 \XSIM{userpoints}{}
@@ -39,8 +39,8 @@
 \XSIM{userbonus-points}{}
 \XSIM{bodybonus-points}{}
 \XSIM{teca}{exercise-1=={1}||exercise-7=={1}}
-\XSIM{tezfc}{exercise-9=={1}||exercise-15=={1}}
-\XSIM{collection:ca}{exercise-1||exercise-7}
-\setcounter{totalexerciseinca}{2}
-\XSIM{collection:zfc}{exercise-9||exercise-15}
-\setcounter{totalexerciseinzfc}{2}
+\XSIM{tezfc}{exercise-10=={1}||exercise-13=={1}||exercise-9=={1}||exercise-15=={1}}
+\XSIM{collection:ca}{exercise-1||exercise-2||exercise-3||exercise-4||exercise-5||exercise-6||exercise-7||exercise-8}
+\setcounter{totalexerciseinca}{8}
+\XSIM{collection:zfc}{exercise-9||exercise-10||exercise-11||exercise-12||exercise-13||exercise-14||exercise-15||exercise-16}
+\setcounter{totalexerciseinzfc}{8}
