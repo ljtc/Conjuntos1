@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 \usepackage[spanish,mexico]{babel}
 \usepackage[letterpaper, DIV=classic]{typearea}
 \usepackage{gfsartemisia-euler}
@@ -12,6 +12,7 @@
 \usepackage{tikz-cd}
 \usepackage{titlesec} %Para cambiar estilo de secciones,subsecciones,etc.
 \usepackage{titling} %Para cambiar estilo de título
+\usepackage{dashrule} %Para hacer líneas punteadas
 
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
@@ -89,9 +90,9 @@
         \item Cada ejercicio tiene un valor de \textbf{dos puntos} para un total de diez. Hay un ejercicio adicional con valor de \textbf{un punto}, éste se calificará únicamente con cero o su valor total.
     \end{enumerate}
 
-    \begin{center}
-        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-    \end{center}
+    %No escribir manualmente una línea punteada. Si se cambia la geometría de la
+    %página o el tamaño de letra, la línea no se ajustará automáticamente.
+    \noindent \hdashrule{\linewidth}{0.4pt}{2mm}
 
     \section*{Conjuntos Abstractos}
     Los ejercicios de esta sección se deben resolver en la categoría de
