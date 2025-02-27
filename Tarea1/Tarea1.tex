@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 \usepackage[spanish,mexico]{babel}
 \usepackage[letterpaper, DIV=classic]{typearea}
 \usepackage{gfsartemisia-euler}
@@ -55,6 +55,7 @@
 \newcommand{\set}[1]{\{#1\}}
 \newcommand{\ms}[1]{\mathscr{#1}}
 \renewcommand{\emptyset}{\varnothing}
+\newcommand{\pts}[1]{ \ifthenelse{\equal{#1}{1}}{\hfill \textbf{(#1 pt)}}{\hfill \textbf{(#1 pts)}}}
 
 %Estilo de secciones
 \titleformat*{\section}{\raggedleft\bfseries\Large}
@@ -70,7 +71,27 @@
 \date{}
 
 \begin{document}
-    \maketitle
+\pagenumbering{gobble}
+
+    \begin{center}
+        \huge \textbf{Tarea Examen 1} \\ \normalsize
+    \end{center}
+
+    \begin{flushright}
+        Profesor: Luis Jesús Turcio Cuevas \hfill Ayudantes: Jesús Angel Cabrera Labastida, \\
+        Hugo Víctor García Martínez
+    \end{flushright}
+
+    \begin{enumerate}[i)]
+        \item La tarea se entrega de forma \textbf{presencial} durante la clase del \textbf{7 de marzo}.
+        \item Los equipos para realizar la tarea deberan contar con \textbf{mínimo 4} integrantes y \textbf{máximo 6}.
+        \item Se pueden usar resultados vistos en clase, \textbf{siempre y cuando} se mencione claramente cuándo y dónde se usan.
+        \item Cada ejercicio tiene un valor de \textbf{dos puntos} para un total de diez. Hay un ejercicio adicional con valor de \textbf{un punto}, éste se calificará únicamente con cero o su valor total.
+    \end{enumerate}
+
+    \begin{center}
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    \end{center}
 
     \section*{Conjuntos Abstractos}
     Los ejercicios de esta sección se deben resolver en la categoría de
@@ -84,11 +105,21 @@
     
 
     \section*{ZFC}
+    Para los ejercicios de esta sección se podrán utilizar únicamente los axiomas de ZFC vistos hasta el momento en clase. 
+
     \collectexercises{zfc}
     \xsimsetup{tezfc=1}
     \input{../zfc.tex}
     \collectexercisesstop{zfc}
     \printcollection{zfc}
 
-
+    \section*{Adicional}
+    \setcounter{exercise}{5}
+    \begin{exercise}[print=true]
+        Sean $X,Y$ conjuntos y $f:X \to Y$. Se define la función $g:\ms{P}(X)\to \ms{P}(Y)$ para cada $a \in \ms{P}(X)$ como $ g(a)=\Set{ y \in Y \st f^{-1}[\{y\}] \subseteq a } $.
+        \begin{enumerate}[i)]
+            \item Demuestra que si $a \in \ms{P}(X)$ y $b \in \ms{P}(Y)$, entonces $b \subseteq g(a)$ si y sólo si $f^{-1}[b] \subseteq a$.
+            \item Prueba que para todo $A \in \ms{P}(\ms{P}(X)) \setminus \{\emptyset\}$ se tiene $g(\bigcap A)=\bigcap \Set{g(a) \st a \in A}$.
+        \end{enumerate}
+    \end{exercise}
 \end{document}

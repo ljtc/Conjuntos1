@@ -2,8 +2,8 @@
   Demuestre las siguientes equivalencias o implicaciones. En cada inciso indique claramente qué axiomas de ZFC se utilizan durante la prueba.
    \begin{enumerate}[i)]
        \item El axioma de extensionalidad implica el enunciado \(\forall x \forall y ( \forall w (x \in w \leftrightarrow y \in w) \rightarrow x=y ) \).
-       \item El enunciado \(\forall x \forall y \exists p \forall w ( (w=x \lor w=y) \to w \in p ) \) es equivalente al axioma del par.
-       \item El enunciado \(\forall x \exists p \forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\) es equivalente al Axioma de potencia.
+       %\item El enunciado \(\forall x \forall y \exists p \forall w ( (w=x \lor w=y) \to w \in p ) \) es equivalente al axioma del par.
+       \item El enunciado \(\forall x \exists p \forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\) es equivalente al axioma de potencia.
        \item El enunciado \( \forall x \forall y \exists p \forall w ( w \in p \leftrightarrow (p \in x \lor p=y ) ) \) implica el axioma del par.
    \end{enumerate}
 \end{exercise}
@@ -72,7 +72,7 @@
   Todas las colecciones de este ejercicio son conjuntos. Prueba dos de los siguientes incisos:
   \begin{enumerate}[i)]
       \item \(x \subseteq \ms{P}(y)\) si y sólo si \(\bigcup x \subseteq y\).
-      \item Si \(x \neq \emptyset\), \(y \in \bigcap\Set{\ms{P}(a) \st a \in x}\) ocurre sólo si \(y \subseteq \bigcup x\).
+      \item Si \(x \neq \emptyset\), entonces \(y \in \bigcap\Set{\ms{P}(a) \st a \in x}\) ocurre sólo si \(y \subseteq \bigcap x\).
       \item \( \bigcup \Set{ \ms{P}(a) \st a \in x } \subseteq \ms{P}(\bigcup x) \) pero no siempre \( \bigcup \Set{ \ms{P}(a) \st a \in x } \neq \ms{P}(\bigcup x) \).
       \item \( ( \bigcup x \big) \cap ( \bigcup y ) = \bigcup \Set{ a \cap b \st (a,b) \in x \times y } \).
   \end{enumerate}
@@ -87,5 +87,13 @@
       \item $\Class{\ms{P}(A)\st A\in \ms{F}}$
       \item $\Class{A\times \ms{P}(A)\st A\in \ms{F}}$
       \item $\Class{B\setminus(f[A])\st A\subseteq X \wedge B\in \ms{F}}$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[tezfc=1]
+  Sean $x$ un conjunto y $f$ una función con dominio $x$. Prueba lo siguiente:
+  \begin{enumerate}[i)]
+      \item Si $A \in \ms{P}(\ms{P}(X))$ es no vacío, entonces $f[\bigcap A] \subseteq \bigcap \Set{f[a] \st a \in A} $.
+      \item $f$ es inyectiva si y sólo si para cada $A \in \ms{P}(\ms{P}(X))$ no vacío se tiene que $\bigcap \Set{f[a] \st a \in A} \subseteq f[\bigcap A]$.
   \end{enumerate}
 \end{exercise}
