@@ -2,6 +2,38 @@
   Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es 
   inyectiva.
 \end{exercise}
+\begin{solution}
+  Supongamos que \(f\colon A\to B\) es mono y consideremos dos elementos
+  globales \(a_1,a_2\colon 1\to A\) tales que el siguiente diagrama conmuta
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{a_1}\ar[shift right]{r}[swap]{a_2}\& A\ar{r}{f}\& B.
+    \end{tikzcd}
+  \end{equation*}
+  Como \(f\) es mono se sigue que \(a_1=a_2\). Por lo tanto, \(f\) es inyectiva.
+
+  Supongamos ahora que \(f\colon A\to B\) es inyectiva y supongamos que el
+  siguiente diagrama conmuta
+  \begin{equation}\label{eq:mono}
+    \begin{tikzcd}[ampersand replacement=\&]
+      T\ar[shift left]{r}{x}\ar[shift right]{r}[swap]{y}\& A\ar{r}{f}\& B.
+    \end{tikzcd}
+  \end{equation}
+  Para mostrar que \(x=y\) usamos que \(1\) es separador. Así, tomemos un
+  elemento global \(t\colon 1\to T\) y veamos que \(xt=yt\). Como el diagrama
+  en~\eqref{eq:mono} conmuta, se sigue que
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar{r}{t} \& T\ar[shift left]{r}{x}\ar[shift right]{r}[swap]{y}\& A\ar{r}{f}\& B
+    \end{tikzcd}
+    =
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{xt}\ar[shift right]{r}[swap]{yt}\& A\ar{r}{f}\& B.
+    \end{tikzcd}
+  \end{equation*}
+  conmuta. Como \(f\) es inyectiva, se sigue que \(xt=yt\). Por lo tanto,
+  \(x=y\) y así \(f\) es mono.
+\end{solution}
 
 \begin{exercise}
   Una flecha \(f\colon A\to B\) es constante si se puede factorizar a
@@ -51,6 +83,38 @@
   característica \(\chi_m\colon A\to \Omega\). Demuestra que para
   cualquier elemento generalizado \(x\colon X\to A\) se satisface: \( x\in_A m \iff \chi_m x = v_X \), donde \(v_X\) es la composición de \(!_X\colon X\to 1\) con \(v\colon 1\to \Omega\).
 \end{exercise}
+\begin{solution}
+  Supongamos que \(x\in_A m\), es decir, existe \(h\colon X\to S\) tal que
+  el siguiente diagrama conmuta
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      X\ar{rr}{h}\ar{dr}[swap]{x} \&\& S\ar[tail]{dl}{m}\\
+      \& A\mathrlap{.}    
+    \end{tikzcd}
+  \end{equation*}
+  Con esto la igualdad que queremos se sigue de la conmutatividad del siguiente
+  diagrama
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      X\ar[bend left=30]{rrd}{!_X}\ar{rd}{h}\ar[bend right=30]{ddr}[swap]{x}\\[-2ex]
+      \&[-2ex] S\ar{r}{!_S}\ar[tail]{d}[swap]{m} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\chi_m} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation*}
+
+  Ahora supongamos que \(\chi_m x = v_X\). Esto significa que el cuadrado
+  exterior del siguiente diagrama conmuta y por la propiedad universal del
+  producto fibrado existe \(h\colon X\to S\) que hace conmutar al triangulo de
+  la derecha del siguiente diagrama 
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      X\ar[bend left=30]{rrd}{!_X}\ar[dashed]{rd}{h}\ar[bend right=30]{ddr}[swap]{x}\\[-2ex]
+      \&[-2ex] S\ar{r}{!_S}\ar[tail]{d}[swap]{m} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\chi_m} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation*}
+  Por lo tanto, \(x\in_A m\).
+\end{solution}
 
 \begin{exercise}
   Sean \(f\colon A\to B\) y \(n\colon T\rightarrowtail B\). Usa el lema

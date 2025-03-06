@@ -19,8 +19,15 @@
 \settasks{label=\textsc{\roman*})}
 
 \SetExerciseParameters{exercise}{
-  exercise-name = Ejercicio,
-  exercise-heading = \paragraph
+    exercise-heading = \paragraph
+}
+\DeclareExerciseTranslations{exercise}{Spanish = ejercicio}
+\DeclareExerciseTranslations{exercises}{Spanish = ejercicios}
+\DeclareExerciseTranslations{solution}{Spanish = solución}
+\DeclareExerciseTranslations{solutions}{Spanish = soluciones}
+\DeclareExerciseTranslations{default-heading}{
+  Spanish = \XSIMmixedcase{\GetExerciseParameter{solutions-name}} de los 
+  \XSIMmixedcase{\GetExerciseParameter{exercises-name}}
 }
 
 \DeclareExerciseTagging{teca}
@@ -123,4 +130,6 @@
             \item Prueba que para todo $A \in \ms{P}(\ms{P}(X)) \setminus \{\emptyset\}$ se tiene $g(\bigcap A)=\bigcap \Set{g(a) \st a \in A}$.
         \end{enumerate}
     \end{exercise}
+
+    \printsolutions
 \end{document}
