@@ -1,3 +1,5 @@
+%Ejercicios para el primer parcial
+
 \begin{exercise}[teca=1]
   Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es 
   inyectiva.
@@ -56,4 +58,30 @@
   Sean \(f\colon A\to B\) y \(n\colon T\rightarrowtail B\). Usa el lema
   del producto fibrado para encontrar la característica de la imagen
   inversa \(f^{-1}n\).
+\end{exercise}
+
+
+%Ejercicios para el segundo parcial
+\begin{exercise}[par=2]
+  Demuestra que un producto fibrado de \(f\colon A\to C\leftarrow B\noloc g\) es
+  único salvo iso.
+\end{exercise}
+
+\begin{exercise}[par=2, teca=2]
+  Muestra que el clasificador de subobjetos \(\Omega\) es coseparador, es
+  decir, dadas \(f,g\colon A\to B\) si para cualquier 
+  \(\varphi\colon B\to\Omega\) el diagrama
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      A\ar[shift left]{r}{f}\ar[shift right]{r}[swap]{g}\& B\ar{r}{\varphi}\& \Omega      
+    \end{tikzcd}
+  \end{equation*}
+  conmuta, entonces \(f = g\).
+\end{exercise}
+
+\begin{exercise}[par=2]
+  Sea \(\cat{A}\) una categoría localmente pequeña con coproductos. Demuestra que
+  \begin{equation*}
+    \cat{A}(A,C)\times\cat{A}(B,C)\cong\cat{A}(A+B,C).
+  \end{equation*}
 \end{exercise}
