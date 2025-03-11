@@ -28,7 +28,7 @@
     \usepackage{eulervm}
     \DeclareMathAlphabet{\mathnormal}{U}{zeuex}{m}{n}
 
-\usepackage{hyperref}
+\usepackage[colorlinks]{hyperref}
 
 %Figuras con TikZ
 \usepackage{tikz-cd}
@@ -87,9 +87,36 @@
         Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es inyectiva.
     \end{ejercicio}
 
-    \textbf{\textit{Solución.}} (\(\to\)) Supongamos que \(f\) es mono y supóngase que \(a_1,a_2 \colon 1 \to A\) cumplen que \(fa_1 = fa_2\). Entonces, por ser \(f\) mono se tiene que \(a_1 = a_2\), mostrando que \(f\) es inyectiva.
-
-    (\(\leftarrow\)) Supongamos que \(f\) es inyectiva y sean \(g,h \colon X \to A\) cualesquiera flechas tales que \(fg = fh\). Se utilizará que \(1\) es separador para verificar que \(g=h\). Supóngase que \(x \colon 1 \to X\) es cualquiera, entonces como \(fg=fh\) se tiene que \(fgx = fhx\), por lo que \(gx = hx\). Por lo tanto, de que \(1\) es separador, se desprende que \(g=h\), mostrando que \(f\) es mono. \QED
+    \textbf{\textit{Solución.}} Supongamos que \(f\colon A\to B\) es mono y consideremos dos elementos
+    globales \(a_1,a_2\colon 1\to A\) tales que el siguiente diagrama conmuta
+    \begin{equation*}
+      \begin{tikzcd}[ampersand replacement=\&]
+        1\ar[shift left]{r}{a_1}\ar[shift right]{r}[swap]{a_2}\& A\ar{r}{f}\& B.
+      \end{tikzcd}
+    \end{equation*}
+    Como \(f\) es mono se sigue que \(a_1=a_2\). Por lo tanto, \(f\) es inyectiva.
+  
+    Supongamos ahora que \(f\colon A\to B\) es inyectiva y supongamos que el
+    siguiente diagrama conmuta
+    \begin{equation}\label{eq:mono}
+      \begin{tikzcd}[ampersand replacement=\&]
+        T\ar[shift left]{r}{x}\ar[shift right]{r}[swap]{y}\& A\ar{r}{f}\& B.
+      \end{tikzcd}
+    \end{equation}
+    Para mostrar que \(x=y\) usamos que \(1\) es separador. Así, tomemos un
+    elemento global \(t\colon 1\to T\) y veamos que \(xt=yt\). Como el diagrama
+    en~\eqref{eq:mono} conmuta, se sigue que
+    \begin{equation*}
+      \begin{tikzcd}[ampersand replacement=\&]
+        1\ar{r}{t} \& T\ar[shift left]{r}{x}\ar[shift right]{r}[swap]{y}\& A\ar{r}{f}\& B
+      \end{tikzcd}
+      =
+      \begin{tikzcd}[ampersand replacement=\&]
+        1\ar[shift left]{r}{xt}\ar[shift right]{r}[swap]{yt}\& A\ar{r}{f}\& B.
+      \end{tikzcd}
+    \end{equation*}
+    conmuta. Como \(f\) es inyectiva, se sigue que \(xt=yt\). Por lo tanto,
+    \(x=y\) y así \(f\) es mono. \QED
     
     \begin{ejercicio}
         Sea \(m\colon S\rightarrowtail A\) un subobjeto y considera su flecha característica \(\varphi_m\colon A\to \Omega\). Demuestra que para cualquier elemento generalizado \(x\colon X\to A\) se satisface: \( x\in_A m \iff \varphi_m x = v_X \), donde \(v_X\) es la composición de \(!_X\colon X\to 1\) con \(v\colon 1\to \Omega\).
@@ -97,8 +124,12 @@
 
     \textbf{\textit{Solución.}} Sean \(x: X \to A\) cualquier elemento generalizado y $v_X:=v \: !_X$.
 
-    (\(\to\)) Supóngase que \(x\in_A m\), entonces por definición de la pertenencia relativa a \(A\), existe \(y: X \to S\) tal que \(my = x\). Además $!_X = !_S \: y$; por ser \(1\) objeto terminal, y \( v \: !_S = \varphi_m \: m \); por definición de flecha característica. Luego, todas las ``partes internas'' del siguiente diagrama conmutan:
-    \begin{multicols}{2}
+    (\(\to\)) Supóngase que \(x\in_A m\), entonces por definición de la
+    pertenencia relativa a \(A\), existe \(y: X \to S\) tal que \(my = x\).
+    Además $!_X = !_S \: y$; por ser \(1\) objeto terminal, y \( v \: !_S =
+    \varphi_m \: m \); por definición de flecha característica. Luego, todas las
+    partes internas del siguiente diagrama conmutan:
+    \begin{center}
         \begin{minipage}{6cm}
             \[\begin{tikzcd}[scale cd=1.1, row sep=large]
                 X \\
@@ -114,18 +145,19 @@
             \end{tikzcd}\]
         \end{minipage}
         \begin{minipage}{10.55cm}
-            Por lo que el ``exterior'' del diagrama conmuta, y por lo tanto \(\varphi_m \: x = v \: !_X = v_X\). Pero si el ``movimiento de manos'' no basta:%
+            Por lo que el exterior del diagrama conmuta, y por lo tanto \(\varphi_m \: x = v \: !_X = v_X\). Pero si el ``movimiento de manos'' no basta:%
             \begin{align*}
-                v_X & = v \: !_X \tag*{Def. de \(v_X\)} \\
-                & = v \: !_S \: y \tag*{pues \(!_X = !_S \: y\)} \\
-                & = \varphi_m \: m \: y \tag*{Def. de \(\varphi_m\)} \\
-                & = \varphi_m \: x \tag*{Pues \(my = x\)}
+                v_X & = v \: !_X && \text{def. de \(v_X\)} \\
+                & = v \: !_S \: y && \text{pues \(!_X = !_S \: y\)} \\
+                & = \varphi_m \: m \: y && \text{def. de \(\varphi_m\)} \\
+                & = \varphi_m \: x && \text{pues \(my = x\)}
             \end{align*}
         \end{minipage}
-    \end{multicols}
+    \end{center}
 
-    (\(\leftarrow\)) Supóngase que \(\varphi_m x = v_X\), dado que \(v_X=v \: !_X\), a consecuencia de lo anterior el siguiente diagrama conmuta ``exteriormente'':
-    \begin{multicols}{2}
+    (\(\leftarrow\)) Supóngase que \(\varphi_m x = v_X\), dado que \(v_X=v \:
+    !_X\), como consecuencia de lo anterior el exterior del siguiente diagrama conmuta:
+    \begin{center}
         \begin{minipage}{6cm}
             \[\begin{tikzcd}[scale cd=1.1, row sep=large]
                 X \\
@@ -148,7 +180,7 @@
             \end{align*}
             En particular se da \(m \: h=x\), mostrando por definición de pertenencia relativa a \(A\), que \(x \in_A m\). \QED \\
         \end{minipage}
-    \end{multicols}
+    \end{center}
     
     \begin{ejercicio}
         Demuestre las siguientes equivalencias o implicaciones. En cada inciso indique claramente qué ax.s de ZFC se utilizan durante la prueba.
@@ -164,7 +196,7 @@
     \hfill \textit{En esta prueba sólo se usa el \textbf{axioma del par}.} \\
 
     \textbf{(ii)} (\(\rightarrow\)) Supóngase que el enunciado \(\forall x \exists p \forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\) es verdadero y sea \(x\) cualquier conjunto. Por hipótesis, existe \(p\) tal que ``\(\forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\)'' se satisface. Utilizando el \textbf{esquema de separación}, existe  \(p':=\Set*{ w \in p \given \forall z ( z \in x \to z \in w) } \). Así:
-    \[ \forall w ( \forall z ( z \in x \to z \in w) \leftrightarrow w \in p' ) \]
+    \[ \forall w ( \forall z ( z \in x \to z \in w) \leftrightarrow w \in p' ). \]
     En efecto, sea \(w\) cualquier conjunto. Si ``\(\forall z ( z \in x \to z \in w)\)'' se satisface, entonces \(w \in p\) y debido a la definición de \(p'\) se tiene que \(w \in p'\). Por otro lado, si \(w \in p'\), entonces por definición de \(p'\), resulta que ``\(\forall z ( z \in x \to z \in w)\)'' se satisface. Lo anterior es, el axioma de potencia.
 
     (\(\leftarrow\)) Supóngase el axioma de potencia y sea \(x\) cualquier conjunto. Por hipótesis, existe un conjunto \(p\) de tal modo que ``\(\forall w ( \forall z ( z \in x \to z \in w) \leftrightarrow w \in p' )\)'' se satisface, en particular ``\(\forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p' )\)'' es verdadera.
@@ -189,7 +221,11 @@
 
     \textbf{\textit{Demostración.}} Demostraremos todos los incisos. Sean \(x\) y \(y\) conjuntos cualesquiera.
 
-    \textbf{(i)} (\(\rightarrow\)) Supóngase que \(x \subseteq \mathscr{P}(y)\) y sea \(k \in \bigcup x\) cualquier elemento. Por definición de la unión de un conjunto, existe \(h \in x\) de modo que \(k \in h\). Así que de la hipótesis, se obtiene \(h \in \mathscr{P}(y)\), esto es, \(h \subseteq y\) y con ello \(k \in y\). Por lo tanto \(\bigcup x \subseteq y\).
+    \textbf{(i)} (\(\rightarrow\)) Supóngase que \(x \subseteq \mathscr{P}(y)\)
+    y sea \(k \in \bigcup x\) cualquier elemento. Por definición de la unión de
+    un conjunto, existe \(h \in x\) de modo que \(k \in h\). Así, de de la
+    hipótesis, se obtiene \(h \in \mathscr{P}(y)\). Esto es, \(h \subseteq y\)
+    y con ello \(k \in y\). Por lo tanto \(\bigcup x \subseteq y\).
 
     (\(\leftarrow\)) Supóngase que \(\bigcup x \subseteq y\) y sea \(h \in x\) cualquier elemento. Verificar que \(h \in \mathscr{P}(y)\) es equivalente a verificar que \(h \subseteq y\). En efecto, sea \(k \in h\) cualquier elemento, entonces \(k \in \bigcup x\) por definición de la unión de un conjunto. Así que por hipótesis \(k \in y\), esto demuestra que \(h \subseteq y\); y a su vez, que \(x \subseteq \mathscr{P}(y)\).\\
 
