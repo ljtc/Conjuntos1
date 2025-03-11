@@ -1,0 +1,250 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, DIV=15]{typearea}
+
+%Header and footer
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+%Utilidades en texto
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[x11names]{xcolor}
+
+%Para letra de texto "artemisia" y matemáticas "euler". IGNORAR LOS MATEMÁTICOS
+    \usepackage[spanish,es-lcroman,mexico]{babel}
+    \usepackage[T1]{fontenc}
+    \usepackage{gfsartemisia}
+    \let\iint\relax
+    \let\iiint\relax
+    \let\iiiint\relax
+    \let\idotsint\relax
+    \usepackage{mathtools}
+    \usepackage{amssymb}
+    \usepackage{mathrsfs}
+
+    \usepackage{eulervm}
+    \DeclareMathAlphabet{\mathnormal}{U}{zeuex}{m}{n}
+
+\usepackage{hyperref}
+
+%Figuras con TikZ
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},cells={nodes={scale=#1}}}}
+\usepackage{ifthen}
+
+%Etiquetas de las enumeraciones
+\usepackage[shortlabels]{enumitem}
+\setenumerate[2]{label=\MakeLowercase{\roman*}), ref=\roman*}
+\setenumerate[3]{label=\MakeLowercase{\arabic*}), ref=\alph*}
+
+% just to make sure it exists
+\providecommand\given{}
+% can be useful to refer to this outside \Set
+\newcommand\SetSymbol[1][]{\nonscript\:#1\vert\allowbreak\nonscript\:\mathopen{}}
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclarePairedDelimiterX\Bra[1](){#1}
+\DeclarePairedDelimiterX\Cor[1][]{#1}
+
+%Comandos
+\newcommand{\Ais}[1]{\operatorname*{Ais}\Bra*{ #1 }}
+\newcommand{\Int}[1]{\operatorname*{Int}\Bra*{ #1 }}
+\newcommand{\Fr}[1]{\operatorname*{Fr}\Bra*{ #1 }}
+\newcommand{\Ext}[1]{\operatorname*{Ext}\Bra*{ #1 }}
+
+\renewcommand{\tau}{\mathscr{T}}
+\renewcommand{\emptyset}{\varnothing}
+
+\newcounter{A}
+\setcounter{A}{1}
+\newenvironment{ejercicio}{\begin{enumerate}[\bfseries \text{EJ \theA}.]\item}{\end{enumerate}\stepcounter{A}}
+
+\newcommand{\mysetminusD}{\hbox{\tikz{\draw[line width=0.6pt,line cap=round] (3pt,0) -- (0,6pt);}}}
+\newcommand{\mysetminusT}{\mysetminusD}
+\newcommand{\mysetminusS}{\hbox{\tikz{\draw[line width=0.45pt,line cap=round] (2pt,0) -- (0,4pt);}}}
+\newcommand{\mysetminusSS}{\hbox{\tikz{\draw[line width=0.4pt,line cap=round] (1.5pt,0) -- (0,3pt);}}}
+\newcommand{\mysetminus}{\mathbin{\mathchoice{\mysetminusD}{\mysetminusT}{\mysetminusS}{\mysetminusSS}}}
+\renewcommand{\setminus}{\mysetminus}
+
+\newcommand{\QED}{\hfill\ensuremath{\blacksquare}}
+
+\begin{document}
+
+	\begin{center}
+		\Huge \textbf{Tarea 1 - Solución}
+	\end{center}
+    \begin{flushright}
+        \footnotesize Profesor: Luis Jesús Turcio Cuevas \\
+		Ayudantes: Ángel Jesús Cabrera Labastida, \\
+		Hugo Víctor García Martínez
+	\end{flushright}
+    \normalsize
+
+    \begin{ejercicio}
+        Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es inyectiva.
+    \end{ejercicio}
+
+    \textbf{\textit{Solución.}} (\(\to\)) Supongamos que \(f\) es mono y supóngase que \(a_1,a_2 \colon 1 \to A\) cumplen que \(fa_1 = fa_2\). Entonces, por ser \(f\) mono se tiene que \(a_1 = a_2\), mostrando que \(f\) es mono.
+
+    (\(\leftarrow\)) Supongamos que \(f\) es inyectiva y sean \(g,h \colon X \to A\) cualesquiera flechas tales que \(fg = fh\). Se utilizará que \(1\) es separador para verificar que \(g=h\). Supóngase que \(x \colon 1 \to X\) es cualquiera, entonces como \(fg=fh\) se tiene que \(fgx = fhx\), por lo que \(gx = hx\). Por lo tanto, de que \(1\) es separador, se desprende que \(g=h\), mostrando que \(f\) es mono. \QED
+    
+    \begin{ejercicio}
+        Sea \(m\colon S\rightarrowtail A\) un subobjeto y considera su flecha característica \(\varphi_m\colon A\to \Omega\). Demuestra que para cualquier elemento generalizado \(x\colon X\to A\) se satisface: \( x\in_A m \iff \varphi_m x = v_X \), donde \(v_X\) es la composición de \(!_X\colon X\to 1\) con \(v\colon 1\to \Omega\).
+    \end{ejercicio}
+
+    \textbf{\textit{Solución.}} Sean \(x: X \to A\) cualquier elemento generalizado y $v_X:=v \: !_X$.
+
+    (\(\to\)) Supóngase que \(x\in_A m\), entonces por definición de la pertenencia relativa a \(A\), existe \(y: X \to S\) tal que \(my = x\). Además $!_X = !_S \: y$; por ser \(1\) objeto terminal, y \( v \: !_S = \varphi_m \: m \); por definición de flecha característica, todas las ``partes internas'' del siguiente diagrama conmutan:
+    \begin{multicols}{2}
+        \begin{minipage}{6cm}
+            \[\begin{tikzcd}[scale cd=1.1, row sep=large]
+                X \\
+                & S & 1 \\
+                & A & \Omega
+                    \arrow["y"', from=1-1, to=2-2]
+                    \arrow["{!_X}", bend left=30, from=1-1, to=2-3]
+                    \arrow["x"', bend right=30, from=1-1, to=3-2]
+                    \arrow["{!_S}", from=2-2, to=2-3]
+                    \arrow["m"', tail, from=2-2, to=3-2]
+                    \arrow["v", from=2-3, to=3-3]
+                    \arrow["{\varphi_m}"', from=3-2, to=3-3]
+            \end{tikzcd}\]
+        \end{minipage}
+        \begin{minipage}{10.55cm}
+            Por lo que el ``exterior'' del diagrama conmuta, y por lo tanto \(\varphi_m \: x = v \: !_X = v_X\). Pero si el ``movimiento de manos'' no basta:%
+            \begin{align*}
+                v_X & = v \: !_X \tag*{Def. de \(v_X\)} \\
+                & = v \: !_S \: y \tag*{pues \(!_X = !_S \: y\)} \\
+                & = \varphi_m \: m \: y \tag*{Def. de \(\varphi_m\)} \\
+                & = \varphi_m \: x \tag*{Pues \(my = x\)}
+            \end{align*}
+        \end{minipage}
+    \end{multicols}
+
+    (\(\leftarrow\)) Supóngase que \(\varphi_m x = v_X\), dado que \(v_X=v \: !_X\), a consecuencia de lo anterior el siguiente diagrama conmuta ``exteriormente'':
+    \begin{multicols}{2}
+        \begin{minipage}{6cm}
+            \[\begin{tikzcd}[scale cd=1.1, row sep=large]
+                X \\
+                & S & 1 \\
+                & A & \Omega
+                    \arrow["h"', dashed, from=1-1, to=2-2]
+                    \arrow["{!_X}", bend left=30, from=1-1, to=2-3]
+                    \arrow["x"', bend right=30, from=1-1, to=3-2]
+                    \arrow["{!_S}", from=2-2, to=2-3]
+                    \arrow["m"', tail, from=2-2, to=3-2]
+                    \arrow["v", from=2-3, to=3-3]
+                    \arrow["{\varphi_m}"', from=3-2, to=3-3]
+            \end{tikzcd}\]
+        \end{minipage}
+        \begin{minipage}{10.55cm}
+            Siguéndose de la propiedad universal del producto fibrado (de nuevo, recordando la definición de la flecha característica \(\varphi_m\)), existe una única \(h \colon X \to S\) de modo que:%
+            \begin{align*}
+                m \: h & = x \text{ , y} \\
+                !_S \: h & = !_x
+            \end{align*}
+            En particular \(mh=x\), mostrando por definición de pertenencia relativa a \(A\), que \(x \in_A m\). \QED \\
+        \end{minipage}
+    \end{multicols}
+    
+    \begin{ejercicio}
+        Demuestre las siguientes equivalencias o implicaciones. En cada inciso indique claramente qué ax.s de ZFC se utilizan durante la prueba.
+        \begin{enumerate}[i)]
+            \item El ax. de extensionalidad implica el enunciado \(\forall x \forall y ( \forall w (x \in w \leftrightarrow y \in w) \rightarrow x=y ) \).
+            \item El enunciado \(\forall x \exists p \forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\) es equivalente al ax. de potencia.
+            \item El enunciado \( \forall x \forall y \exists p \forall w ( w \in p \leftrightarrow (w \in x \lor w=y ) ) \) implica el ax. del par.
+        \end{enumerate}
+    \end{ejercicio}
+
+    \textbf{\textit{Demostración.}} \textbf{(i)} Supóngase el axioma de extensionalidad y sean \(x,y\) conjuntos cualesquiera tales que para todo conjunto \(w\) se tiene que \(x \in w\) si y sólo si \(y \in w\). Por el \textbf{axioma del par}, existe el conjunto $z=\Set{x,x}=\Set{x}$, así que en particular $x \in z$ si y sólo si $y \in z$. Dado que $x \in z$, entonces $y \in z$ y esto último ocurre sólo si $y=x$. Por lo tanto $x=y$.
+    
+    \hfill \textit{En esta prueba sólo se usa el \textbf{axioma del par}.} \\
+
+    \textbf{(ii)} (\(\rightarrow\)) Supóngase que el enunciado \(\forall x \exists p \forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\) es verdadero y sea \(x\) cualquier conjunto. Por hipótesis, existe \(p\) tal que ``\(\forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p )\)'' se satisface. Utilizando el \textbf{esquema de separación}, existe  \(p':=\Set*{ w \in p \given \forall z ( z \in x \to z \in w) } \). Así:
+    \[ \forall w ( \forall z ( z \in x \to z \in w) \leftrightarrow w \in p' ) \]
+    En efecto, sea \(w\) cualquier conjunto. Si ``\(\forall z ( z \in x \to z \in w)\)'' se satisface, entonces \(w \in p\) y debido a la definición de \(p'\) se tiene que \(w \in p'\). Por otro lado, si \(w \in p'\), entonces por definición de \(p'\), resulta que ``\(\forall z ( z \in x \to z \in w)\)'' se satisface. Lo anterior es, el axioma de potencia.
+
+    (\(\leftarrow\)) Supóngase el axioma de potencia y sea \(x\) cualquier conjunto. Por hipótesis, existe un conjunto \(p\) de tal modo que ``\(\forall w ( \forall z ( z \in x \to z \in w) \leftrightarrow w \in p' )\)'' se satisface, en particular ``\(\forall w ( \forall z ( z \in x \to z \in w) \rightarrow w \in p' )\)'' es verdadera.
+
+    \hfill \textit{En esta prueba sólo se usa el \textbf{esquema de separación}.} \\
+
+    \textbf{(iii)} Supóngase que el enunciado ``\( \forall x \forall y \exists p \forall w ( w \in p \leftrightarrow (w \in x \lor w=y ) ) \)'' se satisface y sean \(x,y\) conjuntos cualesquiera. Por \textbf{axioma de existencia (vacío)}, existe un conjunto \(v\) tal que ``\(\forall w (w \in v \leftrightarrow w \neq w)\)'' se satisface.
+    
+    Utilizando la hipótesis, existe un conjunto \(q\) de modo que ``\(\forall w ( w \in q \leftrightarrow (w \in v \lor w=y ) )\)'' es verdadera. Como para cada conjunto \(w\) se tiene que ``\(w \in v\)'' es falsa (pues de lo contrario \(w \neq w\)), la anterior fórmula es equivalente a ``\(\forall w ( w \in q \leftrightarrow w=y )\)'', es decir que \(q=\Set{y}\). Ahora, como \(q\) y \(x\) son conjuntos, por hipótesis existe un conjunto \(p\) de modo que la fórmula ``\(\forall w ( w \in p \leftrightarrow (w \in q \lor w=x ) )\)'' se satisface. Pero como ``\(\forall w ( w \in q \leftrightarrow w=y )\)'' es verdadera, de lo anterior se obtiene que ``\(\forall w ( w \in p \leftrightarrow (w=y \lor w=x ) )\)''. Lo anterior demuestra el axioma del par.
+
+    \hfill \textit{En esta prueba sólo se utilizó el \textbf{axioma de existencia (vacío)}.} \quad \ensuremath{\blacksquare} \\
+
+    \begin{ejercicio}
+        Todas las colecciones de este ejercicio son conjuntos. Prueba dos de los siguientes incisos:
+        \begin{enumerate}
+            \item \(x \subseteq \mathscr{P}(y)\) si y sólo si \(\bigcup x \subseteq y\).
+            \item Si \(x \neq \emptyset\), entonces \(y \in \bigcap\Set{\mathscr{P}(a) \given a \in x}\) ocurre sólo si \(y \subseteq \bigcap x\).
+            \item \( \bigcup \Set{ \mathscr{P}(a) \given a \in x } \subseteq \mathscr{P}(\bigcup x) \) pero no siempre \( \bigcup \Set{ \mathscr{P}(a) \given a \in x } = \mathscr{P}(\bigcup x) \).
+            \item \( ( \bigcup x \big) \cap ( \bigcup y ) = \bigcup \Set{ a \cap b \given (a,b) \in x \times y } \).
+        \end{enumerate}
+    \end{ejercicio}
+
+    \textbf{\textit{Demostración.}} Demostraremos todos los incisos. Sean \(x\) y \(y\) conjuntos cualesquiera.
+
+    \textbf{(i)} (\(\rightarrow\)) Supóngase que \(x \subseteq \mathscr{P}(y)\) y sea \(k \in \bigcup x\) cualquier elemento. Por definición de la unión de un conjunto, existe \(h \in x\) de modo que \(k \in h\). Así que de la hipótesis, se obtiene \(h \in \mathscr{P}(y)\), esto es, \(h \subseteq y\) y con ello \(k \in y\). Por lo tanto \(\bigcup x \subseteq y\).
+
+    (\(\leftarrow\)) Supóngase que \(\bigcup x \subseteq y\) y sea \(h \in x\) cualquier elemento. Verificar que \(h \in \mathscr{P}(y)\) es equivalente a verificar que \(h \subseteq y\). En efecto, sea \(k \in h\) cualquier elemento, entonces \(k \in \bigcup x\) por definición de la unión de un conjunto. Así que por hipótesis \(k \in y\), esto demuestra que \(h \subseteq y\); y a su vez, que \(x \subseteq \mathscr{P}(y)\).\\
+
+    \textbf{(ii)} Asúmase que \(x \neq \emptyset\).
+    
+    (\(\rightarrow\)) Supóngase que \(y \in \bigcap\Set{\mathscr{P}(a) \given a \in x}\) y sea \(b \in y\) cualquier elemento. Verifiquemos que \(y \in \bigcap x\), en efecto, si \(a \in x\) es cualquiera, entonces \(y \in \mathscr{P}(a)\) debido a la hipótesis. Consecuentemente \(y \subseteq a\) y \(k \in a\), lo que demuestra que \(k \in \bigcap x\) y así \(y \subseteq \bigcap x\).
+
+    (\(\leftarrow\)) Supóngase que \(y \subseteq \bigcap x\). Verifiquemos que \(y \in \bigcap\Set{\mathscr{P}(a) \given a \in x}\), en efecto, sea \(a \in x\) cualquier elemento. De este modo, considerando cualquier \(b \in y\) se obtiene de la hipótesis que \(b \in \bigcap a\), así que \( y \subseteq a\), o equivalentemente, \(y \in \mathscr{P}(a)\). Lo anterior; al ser \(a \in x\) cualquiera, es una prueba de que \(y \in \bigcap\Set{\mathscr{P}(a) \given a \in x}\).\\
+
+    \textbf{(iii)} Considérese un elemento \( k \in \bigcup \Set{ \mathscr{P}(a) \given a \in x } \) cualquiera. Así, existe cierto \(a \in x\) de modo que \(k \in \mathscr{P}(X)\); esto es, \(k \subseteq a\). Como \(a \in x\), entonces \(a \subseteq \bigcup x\), por lo que \(k \subseteq \bigcup x\), o equivalentemente, \(k \in \mathscr{P}(x)\). Demostrando que \( \bigcup \Set{ \mathscr{P}(a) \given a \in x } \subseteq \mathscr{P}(\bigcup x) \).
+
+    Para la segunda parte utilizaremos que \(0 \neq 1\) (\textit{moral: ¿por qué?}), sean \(a:=\Set{0}\), \(b:=\Set{1}\) y \(x:=\Set{a,b}\). Todas estas colecciones son conjuntos (\textit{moral: ¿por qué?}). Nótese que el conjunto \(w:=\Set{0,1}\) es subconjunto de la unión de \(x\); en efecto, basta notar que \(0 \in a\), \(a \in x\), \(1 \in b\) y \(b \in x\), por lo que \(w \in \mathscr{P}(x)\). Sin embargo \(w \not\subseteq a\); pues \(1 \in w\) y \(1 \notin a\), así que \(w \notin \mathscr{P}(a)\). Y \(w \not\subseteq b\); pues \(0 \in w\) y \(0 \notin b\), así que \(w \notin \mathscr{P}(b)\), demostrando que para cada \(u \in x\) se tiene que \(w \notin \mathscr{P}(u)\), o equivalentemente, \( w \notin \bigcup \Set{ \mathscr{P}(a) \given a \in x } \).
+
+    De lo anterior se tiene que \(\bigcup \Set{ \mathscr{P}(a) \given a \in x } \neq \mathscr{P}(\bigcup x) \) y esto no usa extensionalidad (al menos la parte ``útil'' de extensionalidad). \\
+
+    \textbf{(iv)} Como ambas colecciones son conjuntos, verifiquemos por extensionalidad (doble contencion) que \( ( \bigcup x \big) \cap ( \bigcup y ) = \bigcup \Set{ a \cap b \given (a,b) \in x \times y } \).
+
+    (\(\subseteq\)) Supóngase que \( k \in ( \bigcup x \big) \cap ( \bigcup y ) \) es cualquier elemento. Entonces \(k \in \bigcup x \), \(k \in \bigcup y \) y por definición de la unión de un conjunto, existen \(a,b\) con juntos con \(a \in x\), \(b \in y\) y \(k \in a,b\). De lo anterior, \(k \in a \cap b\) y además \((a,b) \in x \times y\) por la definición del producto cartesiano de dos conjuntos. Mostrando que \(k \in \bigcup \Set{ a \cap b \given (a,b) \in x \times y }\).
+
+    (\(\supseteq\)) Supóngase ahora que \(k \in \bigcup \Set{ a \cap b \given (a,b) \in x \times y }\) es arbitrario. Entonces por definición de la unión de un conjunto, existe un elemento \((a,b) \in x \times y\) de modo que \(k \in a \cap b\). De lo anterior se tiene que \(k \in a\) y \(k \in b\); más aún, dado que \(a \in x\) y \(b \in y\), se tiene que \(x \in \bigcup x\) y \(x \in \bigcup y\), respectivamente. Lo que prueba que \( k \in ( \bigcup x \big) \cap ( \bigcup y ) \). \QED
+
+    \begin{ejercicio}
+        Sean $X$ un conjunto y $f$ una función con dominio $X$. Prueba lo siguiente:
+        \begin{enumerate}
+            \item Si $A \in \mathscr{P}(\mathscr{P}(X))$ es no vacío, entonces $f[\bigcap A] \subseteq \bigcap \Set{f[a] \given a \in A} $.
+            \item $f$ es inyectiva si y sólo si para cada $A \in \mathscr{P}(\mathscr{P}(X))$ no vacío se da la contención $\bigcap \Set{f[a] \given a \in A} \subseteq f[\bigcap A]$.
+        \end{enumerate}
+    \end{ejercicio}
+
+    \textbf{\textit{Demostración.}} \textbf{(i)} Supóngase que $A \in \mathscr{P}(\mathscr{P}(X))$ es no vacío y sea \(y \in f[\bigcap A]\) cualquier elemento. Sea \(a \in A\) cualquiera, como \(y \in f[\bigcap A]\), existe \(h \in \bigcap A\) de modo que \(y=f(h)\). Obsérvese que así \(h \in a\), implicando que \(y=f(h) \in f[a]\). Por lo que \(k \in \bigcap\Set{f[a] \given a \in A}\) y con ello $f[\bigcap A] \subseteq \bigcap \Set{f[a] \given a \in A} $. \\
+
+    \textbf{(ii)} (\(\rightarrow\)) Supóngase que \(f\) es inyectiva y sea $A \in \mathscr{P}(\mathscr{P}(X)) \setminus \Set{\emptyset}$ cualquiera, fíjese un elemento \(a_0 \in A\). Sea \(y \in \bigcap \Set{f[a] \given a \in A}\) cualquier elemento, como \(a_0 \in A\), entonces \(k \in f[a_0]\) y existe cierto \(h \in a_0\) de modo que \(y=f(h)\). Basta probar que \(h \in \bigcap A\), en efecto, si \(a \in A\) es cualquier elemento, entonces \(y \in f[a]\) y con elllo, existe \(h' \in a\) de modo que \(y=f(h')\). De lo anterior se obtiene que \(f(h)=f(h')\) y \(h=h'\) dada la inyectividad de \(f\), mostrando que \(h \in a\), y por lo tanto \(h \in \bigcap A\). Asi que \(h \in f[\bigcap A]\) y en consecuencia \(\bigcap \Set{f[a] \given a \in A} \subseteq f[\bigcap A]\).
+
+    (\(\leftarrow\)) Recíprocamente prócedase por contrapuesta suponiendo que \(f\) es no inyectiva, entonces existen \(x,y \in X\) tales que \(x \neq y\) pero \(f(x) = f(y)\). Así, \(A:=\Set*{\Set{x}, \Set{y}} \in \mathscr{P}(\mathscr{P}(X)) \setminus \Set{\emptyset}\) y:
+    \[\bigcap \Set*{f[a] \given a \in A} \not\subseteq f \Cor*{\bigcap A} \]
+
+    En efecto, nótese que \(f(x) \in f[\{x\}]\) y \(f(x) = f(y) \in f[\{y\}]\), por lo que para cada \(a \in A \) se cumple \(f(x) \in f[a]\), esto es \(f(x) \in \bigcap \Set*{f[a] \given a \in A}\). Sin embargo, de ocurrir \(f(x) \in f \Cor{\bigcap A}\) se tendría que existe \(h \in \bigcap A\) de modo que \(f(x)=f(h)\). Pero esto es absurdo, pues como \(x \neq y\), entonces \(\bigcap A = \emptyset\). Por lo tanto \(f(x) \notin f \Cor*{\bigcap A}\) y por ende \(\bigcap \Set*{f[a] \given a \in A} \not\subseteq f \Cor*{\bigcap A} \). \QED \\
+
+    \begin{ejercicio}
+        Sean $X,Y$ conjuntos y $f:X \to Y$. Se define la función $g:\mathscr{P}(X)\to \mathscr{P}(Y)$ para cada $a \in \mathscr{P}(X)$ como $ g(a)=\Set{ y \in Y \given f^{-1}[\{y\}] \subseteq a } $.
+        \begin{enumerate}
+            \item Demuestra que si $a \in \mathscr{P}(X)$ y $b \in \mathscr{P}(Y)$, entonces $b \subseteq g(a)$ si y sólo si $f^{-1}[b] \subseteq a$.
+            \item Prueba que para todo $A \in \mathscr{P}(\mathscr{P}(X)) \setminus \{\emptyset\}$ se tiene $g(\bigcap A)=\bigcap \Set{g(a) \given a \in A}$.
+        \end{enumerate}
+    \end{ejercicio}
+
+    \textbf{\textit{Demostración.}} \textbf{(i)} Sean \(a \in \mathscr{P}(X) \) y \(b \in \mathscr{P}(Y)\) cualesquiera.
+    (\(\rightarrow\)) Si \(b \subseteq g(a)\) entonces para cada \(y \in b\) se tiene que \(f^{-1}[\{y\}] \subseteq a\). Luego, si \(x \in f^{-1}[b]\) es cualquiera entonces \(f(x) \in B\); es decir, existe \(y_0 \in B\) de modo que \(f(x)=y_0\), con ello \(x \in f^{-1}[\{y_0\}]\) y así \(x \in a\), demostrando que \(f^{-1}[b] \subseteq a\).
+
+    (\(\leftarrow\)) Supóngase que \(f^{-1}[b] \subseteq a\) y sea \(k \in b\) cualquiera. Si \(x \in f^{-1}[\{k\}]\) es arbitrario, entonces \(f(x) = k \in B\) y entonces \(x \in f^{-1}[b]\). Por hipótesis, se sigue de lo anterior que \(x \in a\) y por lo tanto \(f^{-1}[\{k\}] \subseteq a\). Lo anterior; probadao para cada \(k \in b\), demuestra que \(b \subseteq g(a)\). \\
+
+    \textbf{(ii)} Sea $A \in \mathscr{P}(\mathscr{P}(X)) \setminus \{\emptyset\}$ cualquiera, se verificará que $g(\bigcap A)=\bigcap \Set{g(a) \given a \in A}$ utilizando extensionalidad (doble contención), pues estos objetos son conjuntos.
+
+    (\(\subseteq\)) Como \(A \neq \emptyset\), dado el \textit{Inciso ii) del Ejercicio 4 de esta Tarea}, para esta contención basta verificar que \(g(\bigcap A) \in \bigcap\Set{\mathscr{P}(g(a)) \given a \in A} \). En efecto, si \(a \in A\) es cualquiera entonces \(\bigcap A \subseteq a\), siendo claro de la definición de \(g\) que \(g(\bigcap A) \subseteq g(a)\), esto es \(g(\bigcap A) \in \mathscr{P}(g(a))\).
+
+    (\(\supseteq\)) Nótese que si \(a \in A\) es cualquiera, entonces \(g(a) \subseteq g(a)\) y, por el \textit{Inciso i) de este ejercicio}, se tiene \(f^{-1}\Cor*{g(a)} \subseteq a\). Así, \(\bigcap \Set{ f^{-1}\Cor*{ g(a) } \given a \in A} \subseteq \bigcap A \) y como se mostró en clase, \textit{la imagen inversa preserva intersecciones}, con lo cual \(f^{-1}\Cor*{\bigcap \Set{g(a) \given a \in A}} \subseteq \bigcap A \). Por el \textit{Inciso i) de este ejercicio} basta demostrar que esto prueba que \(\bigcap \Set{g(a) \given a \in A} \subseteq g(\bigcap A)\). \QED 
+
+\end{document}

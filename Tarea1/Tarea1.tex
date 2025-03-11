@@ -54,7 +54,7 @@
 \newcommand{\op}{{}^{\mathrm{op}}}
 \newcommand{\leqop}{\leq^{\mathrm{op}}}
 \newcommand{\set}[1]{\{#1\}}
-\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\mathscr}[1]{\mathscr{#1}}
 \renewcommand{\emptyset}{\varnothing}
 \newcommand{\pts}[1]{ \ifthenelse{\equal{#1}{1}}{\hfill \textbf{(#1 pt)}}{\hfill \textbf{(#1 pts)}}}
 
@@ -117,10 +117,18 @@
     \section*{Adicional}
     \setcounter{exercise}{5}
     \begin{exercise}[print=true]
-        Sean $X,Y$ conjuntos y $f:X \to Y$. Se define la función $g:\ms{P}(X)\to \ms{P}(Y)$ para cada $a \in \ms{P}(X)$ como $ g(a)=\Set{ y \in Y \st f^{-1}[\{y\}] \subseteq a } $.
+        Sean $X,Y$ conjuntos y $f:X \to Y$. Se define la función $g:\mathscr{P}(X)\to \mathscr{P}(Y)$ para cada $a \in \mathscr{P}(X)$ como $ g(a)=\Set{ y \in Y \st f^{-1}[\{y\}] \subseteq a } $.
         \begin{enumerate}[i)]
-            \item Demuestra que si $a \in \ms{P}(X)$ y $b \in \ms{P}(Y)$, entonces $b \subseteq g(a)$ si y sólo si $f^{-1}[b] \subseteq a$.
-            \item Prueba que para todo $A \in \ms{P}(\ms{P}(X)) \setminus \{\emptyset\}$ se tiene $g(\bigcap A)=\bigcap \Set{g(a) \st a \in A}$.
+            \item Demuestra que si $a \in \mathscr{P}(X)$ y $b \in \mathscr{P}(Y)$, entonces $b \subseteq g(a)$ si y sólo si $f^{-1}[b] \subseteq a$.
+            \item Prueba que para todo $A \in \mathscr{P}(\mathscr{P}(X)) \setminus \{\emptyset\}$ se tiene $g(\bigcap A)=\bigcap \Set{g(a) \st a \in A}$.
         \end{enumerate}
     \end{exercise}
 \end{document}
+
+
+
+        Sean $X,Y$ conjuntos y $f:X \to Y$. Se define la función $g:\mathscr{P}(X)\to \mathscr{P}(Y)$ para cada $a \in \mathscr{P}(X)$ como $ g(a)=\Set{ y \in Y \st f^{-1}[\{y\}] \subseteq a } $.
+        \begin{enumerate}[i)]
+            \item Demuestra que si $a \in \mathscr{P}(X)$ y $b \in \mathscr{P}(Y)$, entonces $b \subseteq g(a)$ si y sólo si $f^{-1}[b] \subseteq a$.
+            \item Prueba que para todo $A \in \mathscr{P}(\mathscr{P}(X)) \setminus \{\emptyset\}$ se tiene $g(\bigcap A)=\bigcap \Set{g(a) \st a \in A}$.
+        \end{enumerate}
