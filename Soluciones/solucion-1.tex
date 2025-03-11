@@ -87,7 +87,7 @@
         Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es inyectiva.
     \end{ejercicio}
 
-    \textbf{\textit{Solución.}} (\(\to\)) Supongamos que \(f\) es mono y supóngase que \(a_1,a_2 \colon 1 \to A\) cumplen que \(fa_1 = fa_2\). Entonces, por ser \(f\) mono se tiene que \(a_1 = a_2\), mostrando que \(f\) es mono.
+    \textbf{\textit{Solución.}} (\(\to\)) Supongamos que \(f\) es mono y supóngase que \(a_1,a_2 \colon 1 \to A\) cumplen que \(fa_1 = fa_2\). Entonces, por ser \(f\) mono se tiene que \(a_1 = a_2\), mostrando que \(f\) es inyectiva.
 
     (\(\leftarrow\)) Supongamos que \(f\) es inyectiva y sean \(g,h \colon X \to A\) cualesquiera flechas tales que \(fg = fh\). Se utilizará que \(1\) es separador para verificar que \(g=h\). Supóngase que \(x \colon 1 \to X\) es cualquiera, entonces como \(fg=fh\) se tiene que \(fgx = fhx\), por lo que \(gx = hx\). Por lo tanto, de que \(1\) es separador, se desprende que \(g=h\), mostrando que \(f\) es mono. \QED
     
@@ -97,7 +97,7 @@
 
     \textbf{\textit{Solución.}} Sean \(x: X \to A\) cualquier elemento generalizado y $v_X:=v \: !_X$.
 
-    (\(\to\)) Supóngase que \(x\in_A m\), entonces por definición de la pertenencia relativa a \(A\), existe \(y: X \to S\) tal que \(my = x\). Además $!_X = !_S \: y$; por ser \(1\) objeto terminal, y \( v \: !_S = \varphi_m \: m \); por definición de flecha característica, todas las ``partes internas'' del siguiente diagrama conmutan:
+    (\(\to\)) Supóngase que \(x\in_A m\), entonces por definición de la pertenencia relativa a \(A\), existe \(y: X \to S\) tal que \(my = x\). Además $!_X = !_S \: y$; por ser \(1\) objeto terminal, y \( v \: !_S = \varphi_m \: m \); por definición de flecha característica. Luego, todas las ``partes internas'' del siguiente diagrama conmutan:
     \begin{multicols}{2}
         \begin{minipage}{6cm}
             \[\begin{tikzcd}[scale cd=1.1, row sep=large]
@@ -143,10 +143,10 @@
         \begin{minipage}{10.55cm}
             Siguéndose de la propiedad universal del producto fibrado (de nuevo, recordando la definición de la flecha característica \(\varphi_m\)), existe una única \(h \colon X \to S\) de modo que:%
             \begin{align*}
-                m \: h & = x \text{ , y} \\
+                m \: h & = x \text{\:, y también} \\
                 !_S \: h & = !_x
             \end{align*}
-            En particular \(mh=x\), mostrando por definición de pertenencia relativa a \(A\), que \(x \in_A m\). \QED \\
+            En particular se da \(m \: h=x\), mostrando por definición de pertenencia relativa a \(A\), que \(x \in_A m\). \QED \\
         \end{minipage}
     \end{multicols}
     
