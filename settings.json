@@ -1,0 +1,11 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "latex-workshop.docker.enabled": true,
+    "latex-workshop.docker.image.latex": "ghcr.io/xu-cheng/texlive-full",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "latex-workshop.intellisense.atSuggestion.trigger.latex": "ç",
+    "latex-workshop.intellisense.citation.backend": "biblatex",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "git.autofetch": true
+}
