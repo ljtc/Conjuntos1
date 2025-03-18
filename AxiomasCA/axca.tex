@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+\newcommand{\ca}{\mathscr{S}}
+\newcommand{\topos}{\mathscr{E}}
+\newcommand{\con}{\textbf{Con}}
+
+\title{Axiomas de la categoría de conjuntos abstractos}
+\author{Fulano de Tal}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Primero veremos una lista de axiomas como nos han ido aparenciendo en clase.
+Luego, refinaremos un poco la primera lista para evitar tantas redundancias.
+
+\section{Lista burda de axiomas}
+\begin{description}
+  \item[Axioma 0] \(\ca\) es una categoría.
+  \item[Axioma 1] \(\ca\) tiene objeto terminal \(1\).
+  \item[Axioma 2] \(1\) es separador.
+  \item[Axioma 3] \(\ca\) tiene objeto inicial \(0\).
+  \item[Axioma 4] \(0\not\cong 1\).
+  \item[Axioma 5] \(\ca\) tiene productos binarios (finitos).
+  \item[Axioma 6] \(\ca\) tiene coproductos binarios (finitos).
+  \item[Axioma 7] \(\ca\) tiene productos fibrados.
+  \item[Axioma 8] \(\ca\) tiene clasificador de subobjetos \(\Omega\).
+  \item[Axioma 9] \(\ca\) satisface el axioma de elección.
+  \item[Axioma 10] \(\ca\) tiene exponenciales.
+  \item[Axioma 11] \(\ca\) es booleana, es decir, \(\Omega=1+1\).
+  \item[Axioma 12] \(\ca\) es dos valuada, es decir, \(\Omega\) tiene exactamente
+  dos elementos.
+\end{description}
+
+\section{Lista refinada de axiomas}
+\begin{description}
+  \item[Axioma 0] \(\ca\) es una categoría.
+  \item[Axioma 1] \(\ca\) tiene límites finitos.
+  \item[Axioma 2] \(\ca\) tiene clasificador de subobjetos \(\Omega\).
+  \item[Axioma 3] \(\ca\) tiene exponenciales.
+  \item[Axioma 4] \(1\) es separador.
+  \item[Axioma 5] \(\ca\) satisface el axioma de elección.
+  \item[Axioma 6] \(\ca\) es booleana.
+  \item[Axioma 7] \(\ca\) es dos valuada.
+\end{description}
+
+\section{Comentarios}
+En esta última lista, si \(\topos\) satisface los axiomas 0--3, entonces se
+llama \emph{topos elemental}. Los axiomas 4--7 son propiedades adicionales que
+hacen que \(\topos\) sea un \emph{topos de conjuntos abstractos}.
+
+Como veremos más adelante hay topos cuyos objetos se pueden pensar como
+conjuntos variables. Sin embargo, la categoría \(\con\) no se comporta de esta
+manera. Así, el axioma 4 es necesario para detener la variación. Los axiomas 6 y
+7 hacen que la lógica interna de \(\topos\) sea clásica y con sólo dos valores
+de verdad. Finalmente, el axioma 5 es necesario para realizar muchas
+construcciones en \(\con\) y es independiente del resto. Por lo tanto, se debe
+añadir a la lista de axiomas.
+
+\end{document}
