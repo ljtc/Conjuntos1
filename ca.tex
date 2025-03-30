@@ -63,7 +63,8 @@
 
 %Ejercicios para el segundo parcial
 \begin{exercise}[par=2]
-  Demuestra que un producto fibrado de \(f\colon A\to C\leftarrow B\noloc g\) es
+  Sea \(\cat{A}\) una categoría con productos fibrados. Demuestra que un
+  producto fibrado de \(f\colon A\to C\leftarrow B\noloc g\) es
   único salvo iso.
 \end{exercise}
 
@@ -83,5 +84,43 @@
   Sea \(\cat{A}\) una categoría localmente pequeña con coproductos. Demuestra que
   \begin{equation*}
     \cat{A}(A,C)\times\cat{A}(B,C)\cong\cat{A}(A+B,C).
+  \end{equation*}
+\end{exercise}
+
+\begin{exercise}[par=2]
+  Sean \(\ev\colon A\times\Omega^A\to\Omega\), \(x\colon X\to A\) y 
+  \(m\colon S\rightarrowtail A\). Además, considera la característica de \(m\) y
+  su nombre en la exponencial, \(\name{\chi_m}\colon 1\to\Omega^A\). Muestra que 
+  \(x\in_A m\) si y sólo si \(\ev(x\times\name{\chi_m}) = v_{X\times 1}\).
+\end{exercise}
+
+\begin{exercise}[par=2]
+  Demuestra las siguientes leyes exponenciales:
+  \begin{tasks}(2)
+    \task \(A^0=1\)
+    \task \(A^1=A\)
+    \task \(A^{B+C}\cong A^B\times A^C\)
+    \task \(A^{B\times C}\cong (A^B)^C\)
+  \end{tasks}
+  \textit{Sugerencia: usa, sin demostrar, que la biyección generada por la exponencial es natural en todas las entradas y el lema de Grothendieck-Yoneda.}
+\end{exercise}
+
+\begin{exercise}[par=2]
+  Considera la categoría de espacios vectoriales sobre un campo \(k\),
+  \(\cat{Vect}\). Da un ejemplo que muestre que el dual de un espacio no es
+  natural, es decir, que el siguiente diagrama no conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      V\ar{r}{()^*}\ar{d}[swap]{T} \& V^*\\
+      W\ar{r}[swap]{()^*} \& W^*\mathrlap{.}\ar{u}[swap]{T^*}     
+    \end{tikzcd}
+  \end{equation*}
+  Además, muestra que doble dual sí es natural, es decir, que el
+  siguiente diagrama conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      V\ar{r}{()^{**}}\ar{d}[swap]{T} \& V^{**}\ar{d}{T^{**}}\\
+      W\ar{r}[swap]{()^{**}} \& W^{**}\mathrlap{.}
+    \end{tikzcd}
   \end{equation*}
 \end{exercise}
