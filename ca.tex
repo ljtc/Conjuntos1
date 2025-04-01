@@ -87,12 +87,62 @@
   \end{equation*}
 \end{exercise}
 
-\begin{exercise}[par=2]
+\begin{exercise}[par=2,teca=2]
   Sean \(\ev\colon A\times\Omega^A\to\Omega\), \(x\colon X\to A\) y 
   \(m\colon S\rightarrowtail A\). Además, considera la característica de \(m\) y
   su nombre en la exponencial, \(\name{\chi_m}\colon 1\to\Omega^A\). Muestra que 
   \(x\in_A m\) si y sólo si \(\ev(x\times\name{\chi_m}) = v_{X\times 1}\).
 \end{exercise}
+\begin{solution}[print=true]
+  Primero consideramos el siguiente diagrama
+  \begin{equation}\label{eq:diagrama}
+    \begin{tikzcd}[ampersand replacement=\&]
+      A\times\Omega^A\ar{rr}{\ev} \&\& \Omega\\
+      A\times 1\ar{u}{\id\times\name{\chi_m}}[name=a]{}\ar{r}{p_A}
+      \& A\ar{ru}[name=b]{\chi_m} \\[-2ex]
+      \&\& 1\ar{uu}[swap,name=y]{v} \\[-2ex]
+      X\times 1\ar{uu}{x\times\id}[name=xid]{}\ar{r}{p_X}
+      \& X\ar{uu}[name=x]{x}\ar{ur}[swap]{!_X}
+      \ar[phantom, from=a, to=b, "1"]
+      \ar[phantom, from=xid, to=x, "2"]
+      \ar[phantom, from=x, to=y, "3"]
+    \end{tikzcd}
+  \end{equation}
+  La parte 1 conmuta por la definición de \(\name{\chi_m}\) y la parte 2 por
+  definición de la flecha \(x\times\id\). Si el diagrama 3 conmuta, entonces el
+  diagrama exterior es conmutativo. Viceversa, si el diagrama exterior es
+  conmutativo, entonces el diagrama 3 conmuta. En efecto, para ver que 3 conmuta
+  es suficiente ver que conmuta desde \(X\times 1\), ya que \(p_X\) es iso. Si
+  seguimos el diagrama podemos obtener la conmutatividad que queremos. Las
+  ecuaciones que lo muestran son:
+  \begin{align*}
+    v\,!x\,p_X &= \ev\,(x\times\name{\chi_m})\,(x\times\id)
+    && \text{diagrama exterior}\\
+    & = \chi_m\,p_A\,(x\times\id) && \text{parte 1}\\
+    &= \chi_m\,x\,p_X && \text{parte 2.}
+  \end{align*} 
+  Con esto hemos concluido que 3 conmuta si y sólo si el exterior conmuta.
+
+  Ahora, si suponemos que \(x\in_A m\), entonces existe \(h\colon X\to S\) que
+  hace conmutar al siguiente diagrama
+  \begin{equation}\label{eq:defchi}
+    \begin{tikzcd}[ampersand replacement=\&]
+      X\ar[bend left=20]{rrd}{!_X}\ar[bend right=20]{ddr}[swap]{x}
+        \ar{rd}{h}\\[-2ex]
+      \&[-2ex] S\ar{r}{!_S}\ar[tail]{d}[swap]{m} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\chi_m} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation}
+  De esto tenemos que la parte 3 de diagrama~\ref{eq:diagrama} conmuta. Así, el
+  exterior conmuta. Por lo tanto \(\ev(x\times\name{\chi_m})=v_{X\times 1}\).
+  
+  Por el lado contrario, si \(\ev(x\times\name{\chi_m})=v_{X\times 1}\),
+  entonces el exterior del diagrama~\ref{eq:diagrama} conmuta. Así, la parte 3
+  del mismo diagrama es conmutativa. Esta parte es el exterior del
+  diagrama~\ref{eq:defchi}. Por lo que podemos usar la propiedad universal del
+  producto fibrado para obtener la existencia de \(h\colon X\to S\) que hace
+  conmutar el diagrama~\ref{eq:defchi}. Por lo tanto, \(x\in_A m\). 
+\end{solution}
 
 \begin{exercise}[par=2]
   Demuestra las siguientes leyes exponenciales:

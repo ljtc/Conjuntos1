@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[spanish,mexico]{babel}
+\usepackage[spanish,mexico,shorthands=off]{babel}
 \usepackage[letterpaper, DIV=classic]{typearea}
 \usepackage[T1]{fontenc}
 \usepackage{gfsartemisia}
@@ -59,6 +59,7 @@
 %Comandos que utilizamos
 \DeclarePairedDelimiter{\name}{\ulcorner}{\urcorner}
 \newcommand{\ev}{\mathrm{ev}}
+\newcommand{\id}{\mathrm{id}}
 \newcommand{\topos}[1]{\mathscr{#1}}
 \newcommand{\cat}[1]{\mathbf{#1}}
 \newcommand{\op}{{}^{\mathrm{op}}}
@@ -111,7 +112,7 @@
     Los ejercicios de esta sección se deben resolver en la categoría de
     conjuntos abstractos, \(\topos{S}\), a menos que se indique lo contrario.
     \collectexercises{ca}
-    \xsimsetup{teca=2}
+    \xsimsetup{teca=2,}
     \input{../ca.tex}
     \collectexercisesstop{ca}
     \printcollection{ca}
@@ -122,5 +123,7 @@
     \input{../zfc.tex}
     \collectexercisesstop{zfc}
     \printcollection{zfc}
+
+    \printsolutionstype{exercise}
 
 \end{document}
