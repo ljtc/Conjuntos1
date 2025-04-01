@@ -25,20 +25,21 @@
 \settasks{label=\textsc{\roman*})}
 
 \SetExerciseParameters{exercise}{
-  exercise-name = Ejercicio,
+  exercise-name = EJ,
   exercise-heading = \paragraph
 }
 
 \DeclareExerciseTagging{teca}
 \DeclareExerciseTagging{par}
 \DeclareExerciseTagging{tezfc}
+\DeclareExerciseTagging{parzfc}
 \xsimsetup{collect}
 
 \DeclareExerciseCollection[teca=2]{ca}
 \DeclareExerciseCollection[tezfc=2]{zfc}
 
 % Para escribir el "tal que" de los conjuntos
-\providecommand\st{}
+\providecommand\st{\;|\;}
 
 \newcommand\SetSymbol[1][]{%
     \nonscript\:#1\vert
@@ -56,6 +57,8 @@
 
 
 %Comandos que utilizamos
+\DeclarePairedDelimiter{\name}{\ulcorner}{\urcorner}
+\newcommand{\ev}{\mathrm{ev}}
 \newcommand{\topos}[1]{\mathscr{#1}}
 \newcommand{\cat}[1]{\mathbf{#1}}
 \newcommand{\op}{{}^{\mathrm{op}}}
@@ -86,22 +89,38 @@
 
 \begin{document}
 
-\section*{Conjuntos Abstractos}
-Los ejercicios de esta sección se deben resolver en la categoría de
-conjuntos abstractos, \(\topos{S}\), a menos que se indique lo contrario.
-
-\collectexercises{ca}
-\xsimsetup{teca=2}
-\input{../ca.tex}
-\collectexercisesstop{ca}
-\printcollection{ca}
-
-\section*{ZFC}
-
-\collectexercises{zfc}
-\xsimsetup{tezfc=2}
-\input{../zfc.tex}
-\collectexercisesstop{zfc}
-\printcollection{zfc}
+    \begin{center}
+      \Huge \textbf{Ejercicios de Práctica 2} \\
+    \end{center}
+    \begin{flushright}
+      \footnotesize Profesor: Luis Jesús Trucio Cuevas.\\
+      Ayudantes: Jesús Angel Cabrera Labastida,\\
+      Hugo Víctor García Martínez.
+    \end{flushright}
+    \footnotesize
+    \begin{enumerate}[i)]
+      \item La tarea se entrega de forma \textbf{presencial} durante la clase del \textbf{7 de marzo}.
+      \item Los equipos para realizar la tarea deberan contar con \textbf{mínimo 4} integrantes y \textbf{máximo 6}.
+      \item Se pueden usar resultados vistos en clase, \textbf{siempre y cuando} se mencione claramente cuándo y dónde se usan.
+      \item Cada ejercicio tiene un valor de \textbf{dos puntos} para un total de diez. Hay un ejercicio adicional con valor de \textbf{un punto}, éste se calificará únicamente con cero o su valor total.
+  \end{enumerate}\normalsize
+    \begin{center}
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    \end{center}
+    \section*{Conjuntos Abstractos}
+    Los ejercicios de esta sección se deben resolver en la categoría de
+    conjuntos abstractos, \(\topos{S}\), a menos que se indique lo contrario.
+    \collectexercises{ca}
+    \xsimsetup{teca=2}
+    \input{../ca.tex}
+    \collectexercisesstop{ca}
+    \printcollection{ca}
+    
+    \section*{ZFC}
+    Resuelvan los ejercicios de esta sección utilizando únicamente los axiomas de ZFC vistos en clase (aún NO se puede usar el axioma del infinito)
+    \collectexercises{zfc}
+    \input{../zfc.tex}
+    \collectexercisesstop{zfc}
+    \printcollection{zfc}
 
 \end{document}
