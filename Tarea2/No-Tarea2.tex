@@ -25,7 +25,7 @@
 \settasks{label=\textsc{\roman*})}
 
 \SetExerciseParameters{exercise}{
-  exercise-name = Ejercicio,
+  exercise-name = EJ,
   exercise-heading = \paragraph
 }
 
@@ -39,7 +39,7 @@
 \DeclareExerciseCollection[parzfc=2]{zfc}
 
 % Para escribir el "tal que" de los conjuntos
-\providecommand\st{}
+\providecommand\st{\;|\;}
 
 \newcommand\SetSymbol[1][]{%
     \nonscript\:#1\vert
@@ -100,6 +100,7 @@ conjuntos abstractos, \(\topos{S}\), a menos que se indique lo contrario.
 \printcollection{ca}
 
 \section*{ZFC}
+Resuelvan los ejercicios de esta sección utilizando únicamente los axiomas de ZFC vistos en clase (aún NO se puede usar el axioma del infinito)
 
 \collectexercises{zfc}
 \input{../zfc.tex}

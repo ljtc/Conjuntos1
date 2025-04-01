@@ -102,11 +102,9 @@
 
 %Ejercicios para el segundo parcial
 
-
-
 \begin{exercise}[parzfc=2]
   Dada una relación $R$, demuestra las siguientes equivalencias:
-  \begin{itemize}
+  \begin{enumerate}[i)]
       \item $R$ es reflexiva si y solo si $\Delta_{dom(R)}\subseteq R$.
       \item $R$ es reflexiva en un conjunto $A$ si y solo si $\Delta_A\subseteq R$.
       \item $R$ es simétrica si y solo si $R^{-1}\subseteq R$.
@@ -114,29 +112,37 @@
       \item $R$ es irreflexiva si y solo si $R\cap \Delta_V = \emptyset$.
       \item $R$ es antisimétrica si y solo si $R\cap R^{-1}\subseteq \Delta_V$.
       \item $R$ es asimétrica si y solo si $R\cap R^{-1}=\emptyset$.
-  \end{itemize}
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[parzfc=2]
+  Para cada inciso, da un ejemplo de relacion $R$ (sobre algún conjunto $A$) de modo que:
+  \begin{enumerate}[i)]
+    \item $R$ sea simétrica y antisimétrica a la vez. ¿Tal relación es única?
+    \item $R$ sea reflexiva y antireflexiva a la vez. ¿Tal relación es única?
+  \end{enumerate}
 \end{exercise}
 
 \begin{exercise}[parzfc=2]
   Si $R$ es un orden parcial sobre $A$, definimos $R^\prime=R\cup \Delta_A$ como el orden parcial reflexivo asociado; por otro lado si $R$ es reflexivo, definimos $R^*=R\setminus \Delta_A$ como su orden estricto asociado.
 
   Demuestra los siguientes puntos:
-  \begin{itemize}
-      \item $A\subseteq B\rightarrow (B\setminus A)\cup A=B$.
-      \item $A\cap B=\emptyset\rightarrow (B\cup A)\setminus A=B$.
+  \begin{enumerate}[i)]
+      \item Si $A\subseteq B$, entonces $(B\setminus A)\cup A=B$.
+      \item $A\cap B=\emptyset$, entonces $(B\cup A)\setminus A=B$.
       \item $R^\prime$ es efectivamente un orden parcial reflexivo sobre $A$.
       \item $R^*$ es efectivamente un orden estricto sobre $A$.
       \item $R^{\prime*}=R$ cuando $R$ es estricto.
       \item $R^{*\prime}=R$ cuando $R$ es reflexivo. Esto junto al inciso anterior prueba que los órdenes estrictos y reflexivos están asociados mediante unaa biyección.
-  \end{itemize}
+  \end{enumerate}
 \end{exercise}
 
 
 \begin{exercise}[parzfc=2]
-  Dadas $R,S$ relaciones transitivas y antisimétricas, definimos $R\sim S$ como ${\exists A (R\Delta S = \Delta_A)}$. Además, definamos al conjunto $\mathcal{X}_A=\set{R\subseteq A^2\st R \text{ es transitiva y antisimétrica.}}$.
+  Dadas $R,S$ relaciones transitivas y antisimétricas, definimos $R\sim S$ como ${\exists A (R\Delta S = \Delta_A)}$. Además, definamos al conjunto $\mathcal{X}_A=\set{R\subseteq A^2\st R \text{ es transitiva y antisimétrica}}$.
   
   Demuestra los siguientes incisos:
-  \begin{enumerate}
+  \begin{enumerate}[i)]
       \item $\sim$ es reflexiva, transitiva y simétrica.
       \item $\sim_{|_{\mathcal{X}_A}}$ es una relación de equivalencia sobre $\mathcal{X}_A$. A partir de aquí, nos referiremos a esta relación como $\sim$.
       \item Dada $R\in \mathcal{X}_A$, $([R]_\sim, \subseteq)$ es un retículo completo. Prueba que el infimo y supremo son la intersección y unión respectivamente siempre que el conjunto es no vacío.
@@ -147,19 +153,50 @@
   
 \end{exercise}
 
-\begin{exercise}[parzfc=2]
+\begin{exercise}
   Un morfismo de órdenes $f\colon (A,\leq_A)\to (B,\leq_B)$ es una función creciente, es decir, si $a\leq_A b$ implica $f(a)\leq_B f(b)$. Considerando que los órdenes parciales junto con las funciones crecientes forman una categoría, tenemos una definición de isomorfismo.
 
   Con esto en cuenta, demuestra o refuta con un contraejemplo la siguiente afirmación: $(A,\leq_A)$ es isomorfo a $(B,\leq_B)$ si y solo si existe un morfismo de orden biyectivo.
 \end{exercise}
 
 \begin{exercise}[parzfc=2]
-  Sea $(A,\leq)$ una reticula y $X$ un conjunto, definimos la siguiente relación sobre $A^X$:
-  \[\preccurlyeq =\set{(f,g)\in (A^X)^2 \st \forall x(x\in X \rightarrow f(x)\leq g(x))}\]
+  Sean $(P,<)$ y $(Q,\sqsubset)$ conjuntos totalmente ordenados. Sea $X:=P \times Q$ y defínase la relación $R$ en $X$ como sigue:
+  \[ (p,q) \mathrel{R} (x,y) \quad \text{ si y sólo si } \left( \left( p < x \right) \lor \left( p=x \land q \sqsubset y \right) \right) \]
+  Demuestre que $(X,R)$ es un conjunto totalmente ordenado.
+\end{exercise}
+
+\begin{exercise}[parzfc=2]
+  Sean $(P,<)$ y $(Q,\sqsubset)$ conjuntos totalmente ordenados. Sea $X:=(P \times \Set{0}) \cup (Q \times \Set{1})$ y defínase la relación $R$ en $X$ como sigue:
+  \[ (x,s) \mathrel{R} (y,t) \quad \text{ si y sólo si } \left( \left( s=0 \land t =1 \right) \right) \]
+  Demuestre que $(X,R)$ es un conjunto totalmente ordenado.
+\end{exercise}
+
+\begin{exercise}[parzfc=2]
+  Sean $P$ un conjunto y $\leq$ un orden parcial reflexivo en $P$. Encuentra una función $f:P \to \mathscr{P}(P)$ inyectiva de modo que para cualesquiera $p,q\in P$ se tenga $p \leq q$ si y sólo si $f(p) \subseteq f(q)$.
+\end{exercise}
+
+\begin{exercise}[parzfc=2]
+  Sean $(P,<)$ y $(Q,\sqsubset)$ conjuntos parcialmente ordenados y $f:P \to Q$ tal que para cualesquiera $x,y \in P$: si $x , y$, entonces $f(x) \sqsubset f(y)$ (estas funciones se llaman \textit{``morfismos de orden''}). Demuestra; o refuta mediante un contraejemplo, las siguientes afirmaciones.
+  \begin{enumerate}[i)]
+    \item Si $p \in P$ es el mínimo de $(P,<)$, entonces $f(p)$ es el mínimo de $(Q,\sqsubset)$.
+    \item Si $p \in P$ $<$-minimal de $P$, entonces $f(p)$ es $\sqsubset$-minimal de $Q$.
+    \item Si $f$ es biyectiva, entonces $f^{-1}$ es un morfismo de orden.
+    \item Si $(P,<)$ es un conjunto totalmente ordenado, entonces $f$ es inyectiva.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[parzfc=2]
+  Sean $(A,\leq)$ una reticula y $X$ un conjunto. Se define en $A^X$ la relación:
+  \[\preccurlyeq :=\set{(f,g)\in (A^X)^2 \st \forall x(x\in X \rightarrow f(x)\leq g(x))}\]
   Demuestra que $(A^X,\preccurlyeq)$ es una retícula.
 \end{exercise}
 
 \begin{exercise}[parzfc=2]
-  Demuestra que todo orden parcial reflexivo es isomorfo a un conjunto ordenado por contención.
+  Sea $P$ un conjunto. Se dice que un orden parcial (antirreflexivo) $R$ en $P$ es \textit{fuertemente inductivo} si y sólo si se satisface:
+  \[ \forall A \left( \forall a \left( R^{-1}[\Set{a}] \subseteq A \rightarrow a \in A \right) \rightarrow P \subseteq A \right) \]
+  Demuestra que para todo orden parcial (antirreflexivo) $R$ en $P$ son equivalentes:
+  \begin{enumerate}[i)]
+    \item $R$ es total y fuertemente inductivo.
+    \item $R$ es buen orden.
+  \end{enumerate}
 \end{exercise}
-
