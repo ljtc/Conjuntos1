@@ -123,7 +123,7 @@
   \end{enumerate}
 \end{exercise}
 
-\begin{exercise}[parzfc=2, tezfc=2]
+\begin{exercise}[parzfc=2]
   Si $R$ es un orden parcial sobre $A$, definimos $R^\prime=R\cup \Delta_A$ como el orden parcial reflexivo asociado; por otro lado si $R$ es reflexivo, definimos $R^*=R\setminus \Delta_A$ como su orden estricto asociado.
 
   Demuestra los siguientes puntos:
@@ -159,9 +159,9 @@
   Con esto en cuenta, demuestra o refuta con un contraejemplo la siguiente afirmación: $(A,\leq_A)$ es isomorfo a $(B,\leq_B)$ si y solo si existe un morfismo de orden biyectivo.
 \end{exercise}
 
-\begin{exercise}[parzfc=2]
+\begin{exercise}[parzfc=2, tezfc=2]
   Sean $(P,<)$ y $(Q,\sqsubset)$ conjuntos totalmente ordenados. Sea $X:=P \times Q$ y defínase la relación $R$ en $X$ como sigue:
-  \[ (p,q) \mathrel{R} (x,y) \quad \text{ si y sólo si } \left( \left( p < x \right) \lor \left( p=x \land q \sqsubset y \right) \right) \]
+  \[ (p,q) \mathrel{R} (x,y) \quad \text{ si y sólo si } \quad \left( \left( p < x \right) \lor \left( p=x \land q \sqsubset y \right) \right) \]
   Demuestre que $(X,R)$ es un conjunto totalmente ordenado.
 \end{exercise}
 
@@ -175,7 +175,7 @@
   Sean $P$ un conjunto y $\leq$ un orden parcial reflexivo en $P$. Encuentra una función $f:P \to \mathscr{P}(P)$ inyectiva de modo que para cualesquiera $p,q\in P$ se tenga $p \leq q$ si y sólo si $f(p) \subseteq f(q)$.
 \end{exercise}
 
-\begin{exercise}[parzfc=2]
+\begin{exercise}[parzfc=2, tezfc=2]
   Sean $(P,<)$ y $(Q,\sqsubset)$ conjuntos parcialmente ordenados y $f:P \to Q$ tal que para cualesquiera $x,y \in P$: si $x , y$, entonces $f(x) \sqsubset f(y)$ (estas funciones se llaman \textit{``morfismos de orden''}). Demuestra; o refuta mediante un contraejemplo, las siguientes afirmaciones.
   \begin{enumerate}[i)]
     \item Si $p \in P$ es el mínimo de $(P,<)$, entonces $f(p)$ es el mínimo de $(Q,\sqsubset)$.
@@ -191,9 +191,9 @@
   Demuestra que $(A^X,\preccurlyeq)$ es una retícula.
 \end{exercise}
 
-\begin{exercise}[parzfc=2]
+\begin{exercise}[parzfc=2, tezfc=2]
   Sea $P$ un conjunto. Se dice que un orden parcial (antirreflexivo) $R$ en $P$ es \textit{fuertemente inductivo} si y sólo si se satisface:
-  \[ \forall A \left( \forall a \left( R^{-1}[\Set{a}] \subseteq A \rightarrow a \in A \right) \rightarrow P \subseteq A \right) \]
+  \[ \forall A \subseteq P \left( \forall a \in P \left( R^{-1}[\Set{a}] \subseteq A \rightarrow a \in A \right) \rightarrow P = A \right) \]
   Demuestra que para todo orden parcial (antirreflexivo) $R$ en $P$ son equivalentes:
   \begin{enumerate}[i)]
     \item $R$ es total y fuertemente inductivo.

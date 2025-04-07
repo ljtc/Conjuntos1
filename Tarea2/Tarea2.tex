@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[spanish,mexico,shorthands=off]{babel}
 \usepackage[letterpaper, DIV=classic]{typearea}
 \usepackage[T1]{fontenc}
@@ -91,12 +91,11 @@
 \begin{document}
 
     \begin{center}
-      \Huge \textbf{Ejercicios de Práctica 2} \\
+      \Huge \textbf{Segunda Tarea Examen} \\
     \end{center}
     \begin{flushright}
-      \footnotesize Profesor: Luis Jesús Trucio Cuevas.\\
-      Ayudantes: Jesús Angel Cabrera Labastida,\\
-      Hugo Víctor García Martínez.
+      \footnotesize Profesor: Luis Jesús Trucio Cuevas. \hfill Ayudantes: Jesús Angel Cabrera Labastida,\\
+      \hfill Hugo Víctor García Martínez.
     \end{flushright}
     \footnotesize
     \begin{enumerate}[i)]
@@ -105,12 +104,10 @@
       \item Se pueden usar resultados vistos en clase, \textbf{siempre y cuando} se mencione claramente cuándo y dónde se usan.
       \item Cada ejercicio tiene un valor de \textbf{dos puntos} para un total de diez. Hay un ejercicio adicional con valor de \textbf{un punto}, éste se calificará únicamente con cero o su valor total.
   \end{enumerate}\normalsize
-    \begin{center}
-      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-    \end{center}
+
     \section*{Conjuntos Abstractos}
     Los ejercicios de esta sección se deben resolver en la categoría de
-    conjuntos abstractos, \(\topos{S}\), a menos que se indique lo contrario.
+    conjuntos abstractos, \(\topos{S}\).
     \collectexercises{ca}
     \xsimsetup{teca=2,}
     \input{../ca.tex}
@@ -122,8 +119,15 @@
     \collectexercises{zfc}
     \input{../zfc.tex}
     \collectexercisesstop{zfc}
-    \printcollection{zfc}
+    \printcollection{zfc} \vspace{.5cm}
 
-    \printsolutionstype{exercise}
+    \noindent \textbf{Ej Extra} Sea $(P,<)$ un conjunto parcialmente ordenado. Supóngase que $f$ y $g$ son funciones con dominio $P$ de modo que para cada $p \in P$ el conjunto $g(p)$ es orden parcial en $f(p)$. En el conjunto $X:=\bigcup\Set{ f(p) \times \Set{p} \st p \in P  }$ defínase $\sqsubset$ como la relacion:
+    \[ (x,p) \sqsubset (y,q) \quad \text{ si y sólo si } \quad \left( p < q \lor \left( p=q \land x \mathrel{g(p)} y  \right) \right) \]
+    \begin{enumerate}[i)]
+      \item Demuestre que $\sqsubset$ es una relación de orden parcial en $X$.
+      \item Demuestre que $\sqsubset$ es un orden total en $X$ y sólo si $(P,<)$ es un conjunto totalmente ordenado y para cada $p \in P$, $g(p)$ es orden total en $f(p)$.
+    \end{enumerate}
+
+    %\printsolutionstype{exercise}
 
 \end{document}
