@@ -119,7 +119,7 @@
     \collectexercisesstop{zfc}
     \printcollection{zfc} \vspace{.5cm}
 
-    \noindent \textbf{Ej Extra} Sea $(P,<)$ un conjunto parcialmente ordenado. Supóngase que $f$ y $g$ son funciones con dominio $P$ de modo que para cada $p \in P$ el conjunto $g(p)$ es orden parcial en $f(p)$. En el conjunto $X:=\bigcup\Set{ f(p) \times \Set{p} \st p \in P  }$ defínase $\sqsubset$ como la relacion:
+    \noindent \textbf{Ej Extra} Sea $(P,<)$ un conjunto parcialmente ordenado con $P \neq \emptyset$. Supóngase que $f$ y $g$ son funciones con dominio $P$ de modo que para cada $p \in P$ el conjunto $g(p)$ es orden parcial en $f(p)$ y que $f(p)\neq \emptyset$. En el conjunto $X:=\bigcup\Set{ f(p) \times \Set{p} \st p \in P  }$ defínase $\sqsubset$ como la relacion:
     \[ (x,p) \sqsubset (y,q) \quad \text{ si y sólo si } \quad \left( p < q \lor \left( p=q \land x \mathrel{g(p)} y  \right) \right) \]
     \begin{enumerate}[i)]
       \item Demuestre que $\sqsubset$ es una relación de orden parcial en $X$.
