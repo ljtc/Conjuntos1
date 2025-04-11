@@ -72,13 +72,51 @@
   Muestra que el clasificador de subobjetos \(\Omega\) es coseparador, es
   decir, dadas \(f,g\colon A\to B\) si para cualquier 
   \(\varphi\colon B\to\Omega\) el diagrama
-  \begin{equation*}
+  \begin{equation}\label{eq:hip}
     \begin{tikzcd}[ampersand replacement=\&]
       A\ar[shift left]{r}{f}\ar[shift right]{r}[swap]{g}\& B\ar{r}{\varphi}\& \Omega      
     \end{tikzcd}
-  \end{equation*}
+  \end{equation}
   conmuta, entonces \(f = g\).
 \end{exercise}
+\begin{solution}
+  Primero veamos que el enunciado es cierto cuando \(A=1\). Esto es, si
+  suponemos que \(b_1,b_2\colon 1\to B\) son tales que
+  \begin{equation}\label{eq:puntos}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{b_1}\ar[shift right]{r}[swap]{b_2}\& B\ar{r}{\varphi}\& \Omega     
+    \end{tikzcd}
+  \end{equation}
+  conmuta, entonces veamos que \(b_1 = b_2\).
+
+  Como toda flecha que sale del terminal es mono y \(\Omega\) es clasificador de
+  subobjetos, entonces \(b_1\) tiene una característica, digamos 
+  \(\varphi\colon B\to\Omega\). Por la hipótesis en~\eqref{eq:puntos} y la propiedad
+  universal del producto fibrado tenemos que el siguiente diagrama conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[bend left=20]{rrd}{\id}\ar[bend right=20]{ddr}[swap]{b_2}
+        \ar[dashed]{rd}\\[-2ex]
+      \&[-2ex] 1\ar{r}{\id}\ar{d}[swap]{b_1} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\varphi} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation*}
+  Como la única flecha del terminal a sí mismo es la identidad, entonces
+  \(b_1 = b_2\).
+
+  Ahora sea \(A\) arbitrario y supongamos que \(f,g\colon A\to B\) son tales
+  que para cualquier \(\varphi\colon B\to\Omega\) el diagrama~\eqref{eq:hip}
+  conmuta. Para ver que \(f = g\) usaremos que \(1\) es separador, es decir,
+  veremos que para cualquier \(a\colon 1\to A\) se satisface \(fa=ga\).
+  Por la hipótesis sobre \(f\) y \(g\) tenemos que el siguiente diagrama
+  conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{fa}\ar[shift right]{r}[swap]{ga}\& B\ar{r}{\varphi}\& \Omega.    
+    \end{tikzcd}
+  \end{equation*}
+  Así, por lo que hicimos antes podemos concluir que \(fa = ga\).
+\end{solution}
 
 \begin{exercise}[par=2]
   Sea \(\cat{A}\) una categoría localmente pequeña con coproductos. Demuestra que
