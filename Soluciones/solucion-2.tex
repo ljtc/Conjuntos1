@@ -1,0 +1,284 @@
+\documentclass[11pt]{article}
+\usepackage[spanish,mexico,shorthands=off]{babel}
+\usepackage[letterpaper, DIV=classic]{typearea}
+\usepackage[T1]{fontenc}
+\usepackage{gfsartemisia}
+\let\iint\relax
+\let\iiint\relax
+\let\iiiint\relax
+\let\idotsint\relax
+\let\openbox\relax
+\usepackage{mathtools}
+\usepackage{eulervm}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{xsim}
+\usepackage{tasks}
+\usepackage{tikz-cd}
+\usepackage{titlesec} %Para cambiar estilo de secciones,subsecciones,etc.
+\usepackage{titling} %Para cambiar estilo de título
+\usepackage{dashrule} %Para hacer líneas punteadas
+
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\settasks{label=\textsc{\roman*})}
+
+\SetExerciseParameters{exercise}{
+  exercise-name = EJ,
+  exercise-heading = \paragraph
+}
+
+\DeclareExerciseTagging{teca}
+\DeclareExerciseTagging{par}
+\DeclareExerciseTagging{tezfc}
+\DeclareExerciseTagging{parzfc}
+\xsimsetup{collect}
+
+\DeclareExerciseCollection[teca=2]{ca}
+\DeclareExerciseCollection[tezfc=2]{zfc}
+
+% Para escribir el "tal que" de los conjuntos
+\providecommand\st{\;|\;}
+
+\newcommand\SetSymbol[1][]{%
+    \nonscript\:#1\vert
+    \allowbreak
+    \nonscript\:
+    \mathopen{}}
+    \DeclarePairedDelimiterX\Set[1]\{\}{%
+    \renewcommand\st{\SetSymbol[\delimsize]}
+    #1
+}
+    \DeclarePairedDelimiterX\Class[1]\langle\rangle{%
+    \renewcommand\st{\SetSymbol[\delimsize]}
+    #1
+}
+
+
+%Comandos que utilizamos
+\DeclarePairedDelimiter{\name}{\ulcorner}{\urcorner}
+\newcommand{\ev}{\mathrm{ev}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\topos}[1]{\mathscr{#1}}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\op}{{}^{\mathrm{op}}}
+\newcommand{\leqop}{\leq^{\mathrm{op}}}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\pts}[1]{%
+  \ifthenelse{\equal{#1}{1}}{\hfill \textbf{(#1 pt)}}{\hfill\textbf{(#1 pts)}}
+}
+\newcommand{\noloc}{%
+  \nobreak
+  \mspace{6mu plus 1mu}
+  {:}
+  \nonscript\mkern-\thinmuskip
+  \mathpunct{}
+  \mspace{2mu}
+}
+
+
+%Estilo de secciones
+\titleformat*{\section}{\raggedleft\bfseries\Large}
+\titleformat*{\subsection}{\raggedleft\bfseries\large}
+
+%Estilo de título
+\pretitle{\begin{center}\fontfamily{lmdh}\huge\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+
+\newcommand{\QED}{\hfill\ensuremath{\blacksquare}}
+
+\begin{document}
+
+	\begin{center}
+		\Huge \textbf{Tarea 2 - Solución}
+	\end{center}
+    \begin{flushright}
+        \footnotesize Profesor: Luis Jesús Turcio Cuevas \\
+		Ayudantes: Jesús Angel Cabrera Labastida, \\
+		Hugo Víctor García Martínez
+	\end{flushright}
+    \normalsize
+
+     \textbf{Ej 1.} Muestra que el clasificador de subobjetos \(\Omega\) es coseparador, es decir, dadas \(f,g\colon A\to B\) si para cualquier 
+      \(\varphi\colon B\to\Omega\) el diagrama
+      \begin{equation}\label{eq:hip}
+        \begin{tikzcd}[ampersand replacement=\&]
+          A\ar[shift left]{r}{f}\ar[shift right]{r}[swap]{g}\& B\ar{r}{\varphi}\& \Omega      
+        \end{tikzcd}
+      \end{equation}
+      conmuta, entonces \(f = g\). \\
+
+      \textbf{\textit{Demostración.}} Primero veamos que el enunciado es cierto cuando \(A=1\). Esto es, si
+  suponemos que \(b_1,b_2\colon 1\to B\) son tales que
+  \begin{equation}\label{eq:puntos}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{b_1}\ar[shift right]{r}[swap]{b_2}\& B\ar{r}{\varphi}\& \Omega     
+    \end{tikzcd}
+  \end{equation}
+  conmuta, entonces veamos que \(b_1 = b_2\).
+
+  Como toda flecha que sale del terminal es mono y \(\Omega\) es clasificador de
+  subobjetos, entonces \(b_1\) tiene una característica, digamos 
+  \(\varphi\colon B\to\Omega\). Por la hipótesis en~\eqref{eq:puntos} y la propiedad
+  universal del producto fibrado tenemos que el siguiente diagrama conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[bend left=20]{rrd}{\id}\ar[bend right=20]{ddr}[swap]{b_2}
+        \ar[dashed]{rd}\\[-2ex]
+      \&[-2ex] 1\ar{r}{\id}\ar{d}[swap]{b_1} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\varphi} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation*}
+  Como la única flecha del terminal a sí mismo es la identidad, entonces
+  \(b_1 = b_2\).
+
+  Ahora sea \(A\) arbitrario y supongamos que \(f,g\colon A\to B\) son tales
+  que para cualquier \(\varphi\colon B\to\Omega\) el diagrama~\eqref{eq:hip}
+  conmuta. Para ver que \(f = g\) usaremos que \(1\) es separador, es decir,
+  veremos que para cualquier \(a\colon 1\to A\) se satisface \(fa=ga\).
+  Por la hipótesis sobre \(f\) y \(g\) tenemos que el siguiente diagrama
+  conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{fa}\ar[shift right]{r}[swap]{ga}\& B\ar{r}{\varphi}\& \Omega.    
+    \end{tikzcd}
+  \end{equation*}
+  Así, por lo que hicimos antes podemos concluir que \(fa = ga\). Lo cual prueba que $f=g$. \QED \\
+
+  \textbf{Ej 2.} Sean \(\ev\colon A\times\Omega^A\to\Omega\), \(x\colon X\to A\) y 
+  \(m\colon S\rightarrowtail A\). Además, considera la característica de \(m\) y
+  su nombre en la exponencial, \(\name{\chi_m}\colon 1\to\Omega^A\). Muestra que 
+  \(x\in_A m\) si y sólo si \(\ev(x\times\name{\chi_m}) = v_{X\times 1}\). \\
+
+  \textbf{\textit{Demostración.}} Primero consideramos el siguiente diagrama
+  \begin{equation}\label{eq:diagrama}
+    \begin{tikzcd}[ampersand replacement=\&]
+      A\times\Omega^A\ar{rr}{\ev} \&\& \Omega\\
+      A\times 1\ar{u}{\id\times\name{\chi_m}}[name=a]{}\ar{r}{p_A}
+      \& A\ar{ru}[name=b]{\chi_m} \\[-2ex]
+      \&\& 1\ar{uu}[swap,name=y]{v} \\[-2ex]
+      X\times 1\ar{uu}{x\times\id}[name=xid]{}\ar{r}{p_X}
+      \& X\ar{uu}[name=x]{x}\ar{ur}[swap]{!_X}
+      \ar[phantom, from=a, to=b, "1"]
+      \ar[phantom, from=xid, to=x, "2"]
+      \ar[phantom, from=x, to=y, "3"]
+    \end{tikzcd}
+  \end{equation}
+  La parte 1 conmuta por la definición de \(\name{\chi_m}\) y la parte 2 por
+  definición de la flecha \(x\times\id\). Si el diagrama 3 conmuta, entonces el
+  diagrama exterior es conmutativo. Viceversa, si el diagrama exterior es
+  conmutativo, entonces el diagrama 3 conmuta. En efecto, para ver que 3 conmuta
+  es suficiente ver que conmuta desde \(X\times 1\), ya que \(p_X\) es iso. Si
+  seguimos el diagrama podemos obtener la conmutatividad que queremos. Las
+  ecuaciones que lo muestran son:
+  \begin{align*}
+    v\,!x\,p_X &= \ev\,(x\times\name{\chi_m})\,(x\times\id)
+    && \text{diagrama exterior}\\
+    & = \chi_m\,p_A\,(x\times\id) && \text{parte 1}\\
+    &= \chi_m\,x\,p_X && \text{parte 2.}
+  \end{align*} 
+  Con esto hemos concluido que 3 conmuta si y sólo si el exterior conmuta.
+
+  Ahora, si suponemos que \(x\in_A m\), entonces existe \(h\colon X\to S\) que
+  hace conmutar al siguiente diagrama
+  \begin{equation}\label{eq:defchi}
+    \begin{tikzcd}[ampersand replacement=\&]
+      X\ar[bend left=20]{rrd}{!_X}\ar[bend right=20]{ddr}[swap]{x}
+        \ar{rd}{h}\\[-2ex]
+      \&[-2ex] S\ar{r}{!_S}\ar[tail]{d}[swap]{m} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\chi_m} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation}
+  De esto tenemos que la parte 3 de diagrama~\eqref{eq:diagrama} conmuta. Así, el
+  exterior conmuta. Por lo tanto \(\ev(x\times\name{\chi_m})=v_{X\times 1}\).
+  
+  Por el lado contrario, si \(\ev(x\times\name{\chi_m})=v_{X\times 1}\),
+  entonces el exterior del diagrama~\eqref{eq:diagrama} conmuta. Así, la parte 3
+  del mismo diagrama es conmutativa. Esta parte es el exterior del
+  diagrama~\eqref{eq:defchi}. Por lo que podemos usar la propiedad universal del
+  producto fibrado para obtener la existencia de \(h\colon X\to S\) que hace
+  conmutar el diagrama~\eqref{eq:defchi}. Por lo tanto, \(x\in_A m\). \QED \\
+
+  \textbf{Ej 3.} Sean $(P,<)$ y $(Q,\sqsubset)$ conjuntos totalmente ordenados. Sea $X:=P \times Q$ y defínase la relación $R$ en $X$ como sigue:
+  \[ (p,q) \mathrel{R} (x,y) \quad \text{ si y sólo si } \quad \left( \left( p < x \right) \lor \left( p=x \land q \sqsubset y \right) \right) \]
+  Demuestre que $(X,R)$ es un conjunto totalmente ordenado. \\
+
+  \textbf{\textit{Demostración.}} Se habrá de demostrar que $R$ es antireflexiva, transitiva y que cualesquiera dos elementos de $P \times Q$ son $R$-comparables.
+
+  Para la primera parte, sea $(x,y) \in P \times Q$ cualquiera. Como $<$ es antireflexiva (por ser orden parcial), entonces $x \not< x$; y similarmente, $y \not\sqsubset y$. De esto último, la proposición ``$x=x \land y \sqsubset y$'' es falsa. Por lo tanto, ``$x<x \: \lor \: (x=x \land y \sqsubset y) $'' es falsa y con ello $(x,y) \not\mathrel{R} (x,y)$, mostrando que $R$ es antireflexiva.
+
+  Ahora, supóngase que $(x,y),(a,b),(u,v) \in P \times Q$ satisfacen $(x,y) \mathrel{R} (a,b)$ y $(a,b) \mathrel{R} (u,v)$. Entonces las proposiciones ``$x<a \: \lor \: (x=a \land y \sqsubset b) $'' y ``$a<u \: \lor \: (a=u \land b \sqsubset v) $'' son verdaderas. Pruébese la proposición ``$x<u \: \lor \: (x=u \land y \sqsubset v) $'' mediante los casos:
+  \begin{multicols}{2}
+    \begin{enumerate}[i)]
+        \item $x<u \land a<u$.
+        \item $x<u \land (a=u \land b \sqsubset v)$.
+        \item $(x=a \land y \sqsubset b) \land a<u$.
+        \item $(x=a \land y \sqsubset b) \land (a=u \land b \sqsubset v)$.
+    \end{enumerate}
+  \end{multicols}
+
+  En los casos (i)-(iii) se obtiene de la transitividad de $<$ que $x<u$ y con ello que $(x,y) \mathrel{R} (u,v)$. Por otro lado; si se cumple (iv), entonces $x=u$ y de la transitividad de $\sqsubset$ se sigue que $y \sqsubset v$, probando también que $(x,y) \mathrel{R} (u,v)$. En cualquier caso, se verifica que $R$ es transitiva, y con ello, orden parcial en $P \times Q$.
+
+  Finalmente, sean $(x,y),(a,b) \in P \times Q$ distintos. Entonces por tricotomía del orden $<$ se tiene que $x<a$, $a<x$ o $x=a$. Si ocurren los dos primeros casos, entonces por definición de $R$, se obtiene $(x,y) \mathrel{R} (a,b)$ o $(a,b) \mathrel{R} (x,y)$. En el caso restante, $x=a$ y aplicando la tricotomía de $\sqsubset$ se da $y=b$, $y \sqsubset b$ o $b \sqsubset y$. Nótese que el primer caso no ocurre pues por hipótesis $(x,y)\neq (a,b)$. Así que $y \sqsubset b$ o $b \sqsubset y$ y como $x=a$, se obtiene de la definición de $R$ que $y \sqsubset b$ o $b \sqsubset y$. Por lo tanto $R$ es un orden parcial tricotómico, esto es, un orden total. \QED \\
+
+  \textbf{Ej 4.} Sean $(P,<)$ y $(Q,\sqsubset)$ conjuntos parcialmente ordenados y $f:P \to Q$ tal que para cualesquiera $x,y \in P$: si $x<y$, entonces $f(x) \sqsubset f(y)$ (estas funciones se llaman \textit{``morfismos de orden''}). Demuestra; o refuta mediante un contraejemplo, las siguientes afirmaciones.
+  \begin{enumerate}[i)]
+    \item Si $p \in P$ es el mínimo de $(P,<)$, entonces $f(p)$ es el mínimo de $(Q,\sqsubset)$.
+    \item Si $p \in P$ es $<$-minimal de $P$, entonces $f(p)$ es $\sqsubset$-minimal de $Q$.
+    \item Si $f$ es biyectiva, entonces $f^{-1}$ es un morfismo de orden.
+    \item Si $(P,<)$ es un conjunto totalmente ordenado, entonces $f$ es inyectiva.
+  \end{enumerate}
+
+  \textbf{\textit{Solución.}} (i) Es \textit{falso en general}. Considere los conjuntos parcialmente ordenados $(P,<)$ y $(Q,\sqsubset)$, con $P:=\Set{0}$, $<:=\emptyset$, $Q:=\Set{0,1}$ y $\sqsubset:=\Set{(0,1)}$. Sea $f:P \to Q$ dada por $f(0)=1$ y nótese que vacuamente $f$ es morfismo de orden. Además $0$ es el es el mínimo de $(P,<)$ pero $f(0)=1$ no es el mínimo de $(Q,\sqsubset)$. En efecto, nótese que existe un elemento $x_0:=0 \in Q$ de modo que $1 \not\sqsubset 0$. De lo contrario, la transitividad de $\sqsubset$ obligaría a que $1 \sqsubset 1$, y esto contradiría su antireflexividad.
+
+  (ii) Es también \textit{falsa en general}. Basta considerar el ejemplo anterior, nótese que $0$ es $<$-minimal de $P$ (todo mínimo es minimal). Sin embargo $f(0)=1$ no es $\sqsubset$-minimal de $Q$, pues el elemento $0 \in Q$ cumple $0 \sqsubset 1=f(0)$.
+
+  (iii) De nuevo, esta afirmacion \textit{es falsa en general}. Considere el conjunto $X:=\Set{0,1,2}$ y las relaciones binarias $<:=\Set{(0,1),(0,2)}$ y $\sqsubset:=\Set{(0,1),(1,2),(0,2)}$, es calro que ambos son órdenes parciales en $X$. Sea $f:X \to X$ la identidad en $X$ y nótese que $f$ es morfismo de orden. Lo anterior, pues $0< 1$, $f(0)=0 \sqsubset 1=f(1)$ y $0< 2$, $f(0)=0 \sqsubset 2=f(2)$. Sin embargo, $f^{-1}$ no es morfismo de orden, pues $f^{-1}$ es la identidad en $X$ y $1 \sqsubset 2$ pero $f^{-1}(1)=1 \not< 2=f^{-1}(2)$.
+
+  (iv) Esta afirmación \textit{es verdadera}. En efecto, si $f$ no es inyectiva, entonces existen $x,y \in P$ distintos y tales que $f(x)=f(y)$. De lo anterior, como $<$ es orden total, se tiene que $x<y$ o $y<x$. Sin embargo, como $f$ es morfismo de orden, se obtiene que $f(x) \sqsubset f(y)$ o $f(y) \sqsubset f(x)$, lo cual contradice la antireflexividad del orden $\sqsubset$. Por lo tanto, $f$ es inyectiva. \QED \\
+
+  \textbf{Ej 5.} Sea $P$ un conjunto. Se dice que un orden parcial (antirreflexivo) $R$ en $P$ es \textit{fuertemente inductivo} si y sólo si se satisface:
+  \[ \forall A \subseteq P \left( \forall a \in P \left( R^{-1}[\Set{a}] \subseteq A \rightarrow a \in A \right) \rightarrow P = A \right) \]
+  Demuestra que para todo orden parcial (antirreflexivo) $R$ en $P$ son equivalentes:
+  \begin{enumerate}[i)]
+    \item $R$ es total y fuertemente inductivo.
+    \item $R$ es buen orden.
+  \end{enumerate}
+
+    \textit{\textbf{Demostración.}} (i) $\to$ (ii). Por contradiccion, supóngase que $R$ es total, fuertemente inductivo y que no es buen orden, es decir, existe un subconjunto $A \subseteq P$ no vacío sin $R$-mínimo. Esto último significa que la proposición ``$\forall p \in A \; \exists a \in A \; \lnot(p \mathrel{R} a \lor p=a)$'' es verdadera, y como $R$ es tricotómica, se tiene que entonces ``$\forall p \in A \; \exists a \in A \; (a \mathrel{R} p)$'' se satisface. Ahora, se afirma que se cumple:
+    \[ \forall a \in P \left( R^{-1}[\Set{a}] \subseteq P\setminus A \rightarrow a \in P \setminus A \right) \]
+    Por contrapuesta, si $a \in P$ y $a \in A$, a consecuencia de que $A$ no tiene $R$-mínimo, se garantiza la existencia de cierto $b \in A$ con $a \mathrel{R} b$, probando que $R^{-1}[\Set{a}] \not\subseteq P\setminus A$. Por lo tanto la proposicion  ``$\forall a \in P \left( R^{-1}[\Set{a}] \subseteq P\setminus A \rightarrow a \in P \setminus A \right)$'' es verdadera y como $R$ es fuertemente inductivo, se tiene que $P=P\setminus A$. Esto contradice la hipótesis de que $A$ no es vacío. Por lo tanto $R$ es buen orden.
+
+    (ii) $\to$ (i). Supóngase que $R$ es buen orden, claramente $R$ es orden total, pues si $x,y \in P$ son cualesquiera, entonces existe el mínimo de $\Set{x,y}$. Veamos que $R$ es fuertemente inductivo. Sea $A \subseteq P$ cualquiera y supóngase que ``$\forall a \in P \left( R^{-1}[\Set{a}] \subseteq A \rightarrow a \in A \right)$'' es verdadera.
+
+    Si $A \neq P$, entonces $P \setminus A$ es no vacío y por lo tanto tiene $R$-mínimo; a saber, cierto $m \in P \setminus A$. Por contrapuesta en ``$\forall a \in P \left( R^{-1}[\Set{a}] \subseteq A \rightarrow a \in A \right)$'' se tiene que $R^{-1}[\Set{m}] \not\subseteq A$, lo que significa que existe cierto $a \in P$ tal que $m \mathrel{R} a$ y $a \in P \setminus A$. Lo último contradice que $m$ sea el mínimo de $P\setminus A$. Por lo tanto $P=A$ y $R$ es fuertemente inductivo. \QED \\
+
+    \textbf{Ej 6} Sea $(P,<)$ un conjunto parcialmente ordenado con $P \neq \emptyset$. Supóngase que $f$ y $g$ son funciones con dominio $P$ de modo que para cada $p \in P$ el conjunto $g(p)$ es orden parcial en $f(p)$ y que $f(p)\neq \emptyset$. En el conjunto $X:=\bigcup\Set{ f(p) \times \Set{p} \st p \in P  }$ defínase $\sqsubset$ como la relacion:
+    \[ (x,p) \sqsubset (y,q) \quad \text{ si y sólo si } \quad \left( p < q \lor \left( p=q \land x \mathrel{g(p)} y  \right) \right) \]
+    \begin{enumerate}[i)]
+      \item Demuestre que $\sqsubset$ es una relación de orden parcial en $X$.
+      \item Demuestre que $\sqsubset$ es un orden total en $X$ y sólo si $(P,<)$ es un conjunto totalmente ordenado y para cada $p \in P$, $g(p)$ es orden total en $f(p)$.
+    \end{enumerate}
+
+    \textbf{\textit{Demostración.}} (i) Se mostrará que $\sqsubset$ es antireflexiva y transitiva. Para la primera parte, si $(x,p) \in X$, entonces $p \not< p$ dado que $<$ es antireflexiva. Por otra parte, $g(p)$ es un órden parcial en $f(p)$ y $x \in f(p)$, por lo que $x \not\mathrel{g(p)} x$. Por lo tanto, la proposición ``$p < p \lor (p=p \land x \mathrel{g(p)} x)$'' es falsa y con ello $(x,p) \not\mathrel{\sqsubset} (x,p)$.
+    Para la transitividad, sean $(x,p),(y,q),(u,v) \in X$ tales que $(x,p) \sqsubset (y,q)$ y $(y,q) \sqsubset (u,v)$. Entonces las proposiciones ``$p<q \lor (p=q \land x \mathrel{g(p)} y)$'' y ``$q<v \lor (q=v \land y \mathrel{g(q)} u)$'' son verdaderas. Se probará la proposición ``$p<v \lor (p=v \land x \mathrel{g(p)} u)$'' mediante los casos:
+    \begin{multicols}{2}
+        \begin{enumerate}[i)]
+            \item $p<q \land q<v$.
+            \item $p<q \land ( q=v \land y \mathrel{g(q)} u )$.
+            \item $(p=q \land x \mathrel{g(p)} y) \land q<v$.
+            \item $(p=q \land x \mathrel{g(p)} y) \land (q=v \land y \mathrel{g(q)} u)$.
+        \end{enumerate}
+    \end{multicols}
+    En los casos (i)-(iii) se obtiene de la transitividad de $<$ que $p<v$ y con ello que $(x,p) \sqsubset (u,v)$. Por otro lado; si se cumple (iv), entonces $p=v$ y además $x \mathrel{g(p)} u$ (por la transitividad del órden parcial $g(p)=g(q)=g(u)$). Por lo tanto, se obtiene que $(x,p) \sqsubset (u,v)$. En cualquier caso, se verifica que $\sqsubset$ es transitiva, y con ello, orden parcial en $X$.
+    \medskip
+
+    (ii) ($\rightarrow$) Supóngase que $\sqsubset$ es orden total. En primer lugar, si $p,q \in P$ son cualesquiera entonces existen $x_0\in f(p)$ y $y_0 \in f(q)$ pues tales conjuntos son no vacíos. Por lo tanto, como $\sqsubset$ es relación tricotómica, se tiene que $(x_0,p) \sqsubset (y_0,q)$, $(y_0,p) \sqsubset (x_0,q)$ o $(x_0,p)=(y_0,q)$. Pero por definición de $\sqsubset$ se tiene que entonces que $p<q$, $q<p$ o $p=q$. Por lo tanto, $P$ es tricotómica.
+    
+    Ahora, sea $p \in P$ cualquier elemento. Si $x,y \in f(p)$ son cualesquiera, entonces por ser $\sqsubset$ tricotómico, se tiene que $x=y$, $x \sqsubset y$ o $y \sqsubset x$. Dada la definicion de $\sqsubset$ resulta que $x=y$, $x \mathrel{g(p)} y$ o $y \mathrel{g(p)} x$. En cualquier caso, se concluye que $g(p)$ es un orden total en $f(p)$. Por lo tanto, $g(p)$ es un orden total en $f(p)$ para cada $p \in P$.
+
+    ($\leftarrow$) Supóngase que $<$ es orden total y que para cada $p \in P$, $g(p)$ es un orden total en $f(p)$. Ahora, supóngase que $(x,p),(y,q) \in X$ son distintos, entonces $p \neq q$ o $x \neq y$. Si $p \neq q$, entonces por ser $<$ tricotómico, se tiene que $p<q$, $q<p$. En el primer caso, se obtiene que $(x,p) \sqsubset (y,q)$ y en el segundo caso, se obtiene que $(y,q) \sqsubset (x,p)$. Ahora, si $p=q$, es necesario que $x \neq y$. Por lo tanto, como $g(p)=g(q)$ es un orden total en $f(p)=f(q)$ y $x,y \in f(p)$, se tiene que $x \mathrel{g(p)} y$ o $y \mathrel{g(p)} x$, lo cual muestra por definicion de $\sqsubset$ que $(x,p) \sqsubset (y,q)$ o $(y,q) \sqsubset (x,p)$. En cualquier caso, se concluye que $\sqsubset$ es un tricotómico; y por lo tanto, es orden total. \QED
+\end{document}
