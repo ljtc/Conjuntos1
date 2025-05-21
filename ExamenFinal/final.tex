@@ -101,8 +101,6 @@
     \item Demuestra que el enunciado $\varphi \leftrightharpoons \forall x\exists y (x\in y \wedge \forall z \forall w ((z\in w \wedge w\in y) \rightarrow z\in y))$ implica el axioma de unión.
     \textit{Indica claramente cuáles axiomas de $\zfc$ utilizas en la demostración.}
 
-    \[ \varphi \leftrightharpoons \forall x\exists y \forall z \forall w ((z\in w \wedge w\in x) \rightarrow z\in y) \]
-
     \item Sea $\psi(x)$ una fórmula de la teoría de conjuntos. Demuestre que, si $z:=\{ y \st \exists x \: (\psi(x) \to y \in x) \}$ es un conjunto, entonces $\{x \st \psi(x)\}$ es un conjunto.
     \textit{Indica claramente cuáles axiomas de $\zfc$ utilizas en la demostración.}
 
@@ -144,8 +142,78 @@
     \item Sea $f\colon X\to X$ una función y $A\subseteq X$. Consideremos, mediante el teorema de recursión, la  (única) función $g\colon N\to \mathscr{P}(X)$ de modo que $g(0) = A$ y, para cada $n \in \omega$, $g(s(n)) = g(n)\cup f[g(n)]$.
     Definimos a los conjuntos $A_*=\bigcup im(g)$, y $A^*= \bigcap\set{B\subseteq X \st A\subseteq B \wedge f[B]\subseteq B}$ (\textit{llamados las cerraduras inferiores y superiores de $A$ bajo $f$, respectivamente}). Demuestra que:
     $$ A^*=A_* \text{ ,} \quad A\subseteq A^* \quad \text{y} \quad f[A^*]\subseteq A^* $$
-
-
-
     \end{enumerate}
+
+
+  \section*{Conjuntos Abstractos}
+  Los ejercicios de esta sección se deben resolver en la categoría de conjuntos
+  abstractos, \(\topos{S}\), a menos que se indique lo contrario.
+  \begin{enumerate}[\bf\text{Ej.} 1.]
+    \item Sea \(f\colon A\to B\). Definimos la gráfica de \(f\) como
+      \begin{equation*}
+        \begin{tikzcd}
+          A & A\times B\ar{l}[swap]{p_A}\ar{r}{p_B} & B\\
+          & A\mathrlap{.}\ar{ul}{\id}\ar{ur}[swap]{f}\ar[dashed]{u}{G_f}
+        \end{tikzcd}
+      \end{equation*}
+      Demuestra que \(G_f\) es mono.
+
+    \item Sean \(f,g\colon A\to B\) tales que \(G_f=G_g\). Demuestra que \(f=g\).
+    
+    \item Demuestra que \(A+0\cong A\).
+    
+    \item Demuestra que toda flecha de la forma \(0\to A\) es inyectiva (por lo
+    tanto mono). Además muestra que si \(A\) no tiene un elementos globales, entonces
+    \(0\to A\) es biyectiva (por lo tanto iso).
+    
+    \item Una flecha \(f\colon A\to B\) es constante si se factoriza a través de
+    \(1\), es decir, existe \(b\colon 1\to B\) tal que el siguiente diagrama
+    conmuta:
+    \begin{equation*}
+      \begin{tikzcd}
+        A\ar{rr}{f}\ar{dr}[swap]{!_A} && B\\
+        & 1\mathrlap{.}\ar{ur}[swap]{b}
+      \end{tikzcd}
+    \end{equation*}
+    Demuestra que \(f\) es constante si y sólo si para cualesquiera 
+    \(a_1,a_2\colon 1\to A\) se satisface \(fa_1 = fa_2\).
+
+    \item Demuestra que las inclusiones a un coproducto son monos. Esto es, si 
+    \(i_A\colon A\to A+B\leftarrow B\noloc i_B\) es un diagrama de coproducto,
+    entonces \(i_A\) es mono.
+
+    \item Sea \(m\colon T\rightarrowtail B\) un subobjeto y \(f\colon A\to B\).
+    Encuentra la flecha característica de la imagen inversa de \(m\).
+
+    \item Sea \(\cat{A}\) una categoría. Considera flechas \(f\colon A\to B\) y
+    \(r,s\colon B\to A\) tales que \(rf=\id_A\) y \(fs=\id_B\). Demuestra que
+    \(r=s\).
+
+    \item Sea \(\cat{A}\) una categoría. Si \(fs=\id_B\) y \(f\) es mono,
+    entonces \(s\) es inversa, por los dos lados, de \(f\).
+
+    \item Sea \(f\colon A\to B\). La fibra de \(b\colon 1\to B\) es el producto fibrado
+    \begin{equation*}
+      \begin{tikzcd}
+        f^-1(b)\ar{r}[swap]{m}\ar[tail]{d} & 1\ar{d}{b}\\
+        A\ar{r}[swap]{f} & B\mathrlap{.}
+      \end{tikzcd}
+    \end{equation*}
+    Demuestra que si \(s\) es una sección de \(f\), entonces \(sb\in_A m\), pra
+    todo \(b\colon 1\to B\).
+
+    \item Demuestra las siguientes leyes exponenciales:
+  \begin{tasks}(2) \task \(A^0=1\) \task \(A^1=A\) \task \(A^{B+C}\cong
+    A^B\times A^C\) \task \(A^{B\times C}\cong (A^B)^C\)
+  \end{tasks}
+
+  \item Sea \(\cat{A}\) una categoría localmente pequeña con coproductos. Demuestra que
+  \begin{equation*}
+    \cat{A}(A,C)\times\cat{A}(B,C)\cong\cat{A}(A+B,C).
+  \end{equation*}
+
+  \item Demuestra que \(f\colon A\to B\) es epi si y sólo si 
+  \(\Omega^f\colon \Omega^B\to \Omega^A\) es mono.
+    
+  \end{enumerate}
 \end{document}
