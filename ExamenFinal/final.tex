@@ -95,6 +95,18 @@
 
 \begin{document}   
 
+  \begin{center}
+   \Huge \textbf{Segunda Tarea Examen} \\
+  \end{center}
+
+  \begin{flushright}
+   \footnotesize Profesor: Luis Jesús Trucio Cuevas. \hfill Ayudantes: Jesús Angel Cabrera Labastida,\\
+   \hfill Hugo Víctor García Martínez.
+  \end{flushright}
+
+  \footnotesize De la siguiente lista de ejercicios, se les pedirá exponer uno (o dos). Al momento de empezar la exposicion se les indicará cuál(es). Las exposiciones serán individuales y de modo presencial.
+  \normalsize
+
   \section*{Conjuntos Abstractos}
   Los ejercicios de esta sección se deben resolver en la categoría de conjuntos
   abstractos, \(\topos{S}\), a menos que se indique lo contrario.
@@ -116,7 +128,7 @@
     tanto mono). Además muestra que si \(A\) no tiene un elementos globales, entonces
     \(0\to A\) es biyectiva (por lo tanto iso).
     
-    \item Una flecha \(f\colon A\to B\) es constante si se factoriza a través de
+    \item Sea $A$ un objeto que admite un objeto global. Una flecha \(f\colon A\to B\) es constante si se factoriza a través de
     \(1\), es decir, existe \(b\colon 1\to B\) tal que el siguiente diagrama
     conmuta:
     \begin{equation*}
@@ -142,10 +154,10 @@
     \item Sea \(\cat{A}\) una categoría. Si \(fs=\id_B\) y \(f\) es mono,
     entonces \(s\) es inversa, por los dos lados, de \(f\).
 
-    \item Sea \(f\colon A\to B\). La fibra de \(b\colon 1\to B\) es el producto fibrado
+    \item Sea \(f\colon A\to B\). La fibra de \(b\colon 1\to B\) es el producto fibrado:
     \begin{equation*}
       \begin{tikzcd}
-        f^-1(b)\ar{r}[swap]{m}\ar[tail]{d} & 1\ar{d}{b}\\
+        f^{-1}(b)\ar{r}{!}\ar[tail]{d}[swap]{m} & 1\ar{d}{b}\\
         A\ar{r}[swap]{f} & B\mathrlap{.}
       \end{tikzcd}
     \end{equation*}
@@ -167,14 +179,14 @@
     
   \end{enumerate}
 
-    \section*{Conjuntos}
+    \section*{Conjuntos (no tan abstractos)}
     Resuelva los siguientes ejercicios utilizando los axiomas de $\zfc$ vistos en clase (Vacío, Extensionalidad, Vacío, )
     \begin{enumerate}[\bf\text{Ej.} 1.]
-    \setcounter{enumi}{14}
+    \setcounter{enumi}{13}
     \item Demuestra que el enunciado $\varphi \leftrightharpoons \forall x\exists y (x\in y \wedge \forall z \forall w ((z\in w \wedge w\in y) \rightarrow z\in y))$ implica el axioma de unión.
     \textit{Indica claramente cuáles axiomas de $\zfc$ utilizas en la demostración.}
 
-    \item Sea $\psi(x)$ una fórmula de la teoría de conjuntos. Demuestre que, si $z:=\{ y \st \exists x \: (\psi(x) \to y \in x) \}$ es un conjunto, entonces $\{x \st \psi(x)\}$ es un conjunto.
+    \item Sea $\psi(x)$ una fórmula de la teoría de conjuntos. Demuestre que, si $z:=\{ y \st \exists x \: (\psi(x) \land y \in x) \}$ es un conjunto, entonces $\{x \st \psi(x)\}$ es un conjunto.
     \textit{Indica claramente cuáles axiomas de $\zfc$ utilizas en la demostración.}
 
    
