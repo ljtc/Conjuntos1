@@ -105,9 +105,29 @@
     \item Cada ejercicio tiene un valor de \textbf{dos puntos} para un total de diez. Hay un ejercicio adicional con valor de \textbf{un punto}, éste se calificará únicamente con cero o su valor total.
   \end{enumerate}\normalsize
 
-  \begin{enumerate}[\bf\text{Ej.} 1.]
-    \item Hola como estas 
-    \item Yo mmuy bien
-  \end{enumerate}
+    \section*{Conjuntos Abstractos}
+    Los ejercicios de esta sección se deben resolver en la categoría de
+    conjuntos abstractos, \(\topos{S}\).
+    \collectexercises{ca}
+    \xsimsetup{teca=2,}
+    \input{../ca.tex}
+    \collectexercisesstop{ca}
+    \printcollection{ca}
+    
+    \section*{ZFC}
+    Resuelvan los ejercicios de esta sección utilizando únicamente los axiomas de ZFC vistos en clase (aún NO se puede usar el axioma del infinito)
+    \collectexercises{zfc}
+    \input{../zfc.tex}
+    \collectexercisesstop{zfc}
+    \printcollection{zfc} \vspace{.5cm}
+
+    \noindent \textbf{Ej Extra} Sea $(P,<)$ un conjunto parcialmente ordenado. Supóngase que $f$ y $g$ son funciones con dominio $P$ de modo que para cada $p \in P$ el conjunto $g(p)$ es orden parcial en $f(p)$. En el conjunto $X:=\bigcup\Set{ f(p) \times \Set{p} \st p \in P  }$ defínase $\sqsubset$ como la relacion:
+    \[ (x,p) \sqsubset (y,q) \quad \text{ si y sólo si } \quad \left( p < q \lor \left( p=q \land x \mathrel{g(p)} y  \right) \right) \]
+    \begin{enumerate}[i)]
+      \item Demuestre que $\sqsubset$ es una relación de orden parcial en $X$.
+      \item Demuestre que $\sqsubset$ es un orden total en $X$ y sólo si $(P,<)$ es un conjunto totalmente ordenado y para cada $p \in P$, $g(p)$ es orden total en $f(p)$.
+    \end{enumerate}
+
+    %\printsolutionstype{exercise}
 
 \end{document}

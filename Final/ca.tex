@@ -1,0 +1,214 @@
+%Ejercicios para el primer parcial
+
+\begin{exercise}[teca=1]
+  Demuestra que \(f\colon A\to B\) es mono si y sólo si \(f\) es 
+  inyectiva.
+\end{exercise}
+
+\begin{exercise}
+  Una flecha \(f\colon A\to B\) es constante si se puede factorizar a
+  través del terminal, es decir, existe \(b\colon 1\to B\) que hace
+  conmutar al siguiente diagrama
+  \begin{equation*}
+      \begin{tikzcd}[ampersand replacement=\&] 
+          A\ar{rr}{f}\ar{dr}[swap]{!_A} \&\& B\\
+          \& 1\mathrlap{.}\ar{ur}[swap]{b}
+      \end{tikzcd}
+  \end{equation*}
+  Muestra que \(f\colon A\to B\) es constante si y sólo si para
+  cualesquiera \(a_1,a_2\colon 1\to A\) se satisface \(fa_1 = fa_2\).
+\end{exercise}
+
+\begin{exercise}
+  Sean \(f\colon A\to B\) y \(g\colon B\to C\) flechas. Demuestra lo
+  siguiente:
+  \begin{tasks}(2)
+      \task Si \(f\) y \(g\) son epi, entonces \(gf\) es epi.
+      \task Si \(gf\) es epi, entonces \(g\) es epi.
+  \end{tasks}
+\end{exercise}
+
+\begin{exercise}
+  Sea \(\cat{P}\) la categoría generada por el orden parcial \((P,\leq)\).
+  Muestra que toda flecha en \(\cat{P}\) es mono y epi. Con esto, da un
+  ejemplo de una categoría en la que no se cumple que mono y epi implica iso.
+\end{exercise}
+
+\begin{exercise}
+  Dadas una categoría \(\cat{A}\) y un objeto \(A\in\cat{A}\), se define
+  la categoría rebanada  \(\cat{A}/A\) mediante lo siguiente: los objetos
+  son flechas en \(\cat{A}\) de la forma \(f\colon X\to A\) y dados
+  dos objetos \(f\colon X\to A\) y \(g\colon Y\to A\), una flecha de
+  \(f\) a \(g\) es una flecha \(h\colon X\to Y\) en \(\cat{A}\) tal que
+  \(g = hf\). Demuestra que \(\cat{A}/A\) es una categoría.
+\end{exercise}
+
+\begin{exercise}
+  Muestra que para cualquier objeto \(A\), la rebanada \(\topos{S}/A\)
+  tiene objetos terminal e inicial.
+\end{exercise}
+
+\begin{exercise}[teca=1]
+  Sea \(m\colon S\rightarrowtail A\) un subobjeto y considera su flecha
+  característica \(\chi_m\colon A\to \Omega\). Demuestra que para
+  cualquier elemento generalizado \(x\colon X\to A\) se satisface: \( x\in_A m \iff \chi_m x = v_X \), donde \(v_X\) es la composición de \(!_X\colon X\to 1\) con \(v\colon 1\to \Omega\).
+\end{exercise}
+
+\begin{exercise}
+  Sean \(f\colon A\to B\) y \(n\colon T\rightarrowtail B\). Usa el lema
+  del producto fibrado para encontrar la característica de la imagen
+  inversa \(f^{-1}n\).
+\end{exercise}
+
+
+%Ejercicios para el segundo parcial
+\begin{exercise}[par=2]
+  Sea \(\cat{A}\) una categoría con productos fibrados. Demuestra que un
+  producto fibrado de \(f\colon A\to C\leftarrow B\noloc g\) es
+  único salvo iso.
+\end{exercise}
+
+\begin{exercise}[par=2, teca=2]
+  Muestra que el clasificador de subobjetos \(\Omega\) es coseparador, es
+  decir, dadas \(f,g\colon A\to B\) si para cualquier 
+  \(\varphi\colon B\to\Omega\) el diagrama
+  \begin{equation}\label{eq:hip}
+    \begin{tikzcd}[ampersand replacement=\&]
+      A\ar[shift left]{r}{f}\ar[shift right]{r}[swap]{g}\& B\ar{r}{\varphi}\& \Omega      
+    \end{tikzcd}
+  \end{equation}
+  conmuta, entonces \(f = g\).
+\end{exercise}
+\begin{solution}
+  Primero veamos que el enunciado es cierto cuando \(A=1\). Esto es, si
+  suponemos que \(b_1,b_2\colon 1\to B\) son tales que
+  \begin{equation}\label{eq:puntos}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{b_1}\ar[shift right]{r}[swap]{b_2}\& B\ar{r}{\varphi}\& \Omega     
+    \end{tikzcd}
+  \end{equation}
+  conmuta, entonces veamos que \(b_1 = b_2\).
+
+  Como toda flecha que sale del terminal es mono y \(\Omega\) es clasificador de
+  subobjetos, entonces \(b_1\) tiene una característica, digamos 
+  \(\varphi\colon B\to\Omega\). Por la hipótesis en~\eqref{eq:puntos} y la propiedad
+  universal del producto fibrado tenemos que el siguiente diagrama conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[bend left=20]{rrd}{\id}\ar[bend right=20]{ddr}[swap]{b_2}
+        \ar[dashed]{rd}\\[-2ex]
+      \&[-2ex] 1\ar{r}{\id}\ar{d}[swap]{b_1} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\varphi} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation*}
+  Como la única flecha del terminal a sí mismo es la identidad, entonces
+  \(b_1 = b_2\).
+
+  Ahora sea \(A\) arbitrario y supongamos que \(f,g\colon A\to B\) son tales
+  que para cualquier \(\varphi\colon B\to\Omega\) el diagrama~\eqref{eq:hip}
+  conmuta. Para ver que \(f = g\) usaremos que \(1\) es separador, es decir,
+  veremos que para cualquier \(a\colon 1\to A\) se satisface \(fa=ga\).
+  Por la hipótesis sobre \(f\) y \(g\) tenemos que el siguiente diagrama
+  conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      1\ar[shift left]{r}{fa}\ar[shift right]{r}[swap]{ga}\& B\ar{r}{\varphi}\& \Omega.    
+    \end{tikzcd}
+  \end{equation*}
+  Así, por lo que hicimos antes podemos concluir que \(fa = ga\).
+\end{solution}
+
+\begin{exercise}[par=2]
+  Sea \(\cat{A}\) una categoría localmente pequeña con coproductos. Demuestra que
+  \begin{equation*}
+    \cat{A}(A,C)\times\cat{A}(B,C)\cong\cat{A}(A+B,C).
+  \end{equation*}
+\end{exercise}
+
+\begin{exercise}[par=2,teca=2]
+  Sean \(\ev\colon A\times\Omega^A\to\Omega\), \(x\colon X\to A\) y 
+  \(m\colon S\rightarrowtail A\). Además, considera la característica de \(m\) y
+  su nombre en la exponencial, \(\name{\chi_m}\colon 1\to\Omega^A\). Muestra que 
+  \(x\in_A m\) si y sólo si \(\ev(x\times\name{\chi_m}) = v_{X\times 1}\).
+\end{exercise}
+\begin{solution}[print=true]
+  Primero consideramos el siguiente diagrama
+  \begin{equation}\label{eq:diagrama}
+    \begin{tikzcd}[ampersand replacement=\&]
+      A\times\Omega^A\ar{rr}{\ev} \&\& \Omega\\
+      A\times 1\ar{u}{\id\times\name{\chi_m}}[name=a]{}\ar{r}{p_A}
+      \& A\ar{ru}[name=b]{\chi_m} \\[-2ex]
+      \&\& 1\ar{uu}[swap,name=y]{v} \\[-2ex]
+      X\times 1\ar{uu}{x\times\id}[name=xid]{}\ar{r}{p_X}
+      \& X\ar{uu}[name=x]{x}\ar{ur}[swap]{!_X}
+      \ar[phantom, from=a, to=b, "1"]
+      \ar[phantom, from=xid, to=x, "2"]
+      \ar[phantom, from=x, to=y, "3"]
+    \end{tikzcd}
+  \end{equation}
+  La parte 1 conmuta por la definición de \(\name{\chi_m}\) y la parte 2 por
+  definición de la flecha \(x\times\id\). Si el diagrama 3 conmuta, entonces el
+  diagrama exterior es conmutativo. Viceversa, si el diagrama exterior es
+  conmutativo, entonces el diagrama 3 conmuta. En efecto, para ver que 3 conmuta
+  es suficiente ver que conmuta desde \(X\times 1\), ya que \(p_X\) es iso. Si
+  seguimos el diagrama podemos obtener la conmutatividad que queremos. Las
+  ecuaciones que lo muestran son:
+  \begin{align*}
+    v\,!x\,p_X &= \ev\,(x\times\name{\chi_m})\,(x\times\id)
+    && \text{diagrama exterior}\\
+    & = \chi_m\,p_A\,(x\times\id) && \text{parte 1}\\
+    &= \chi_m\,x\,p_X && \text{parte 2.}
+  \end{align*} 
+  Con esto hemos concluido que 3 conmuta si y sólo si el exterior conmuta.
+
+  Ahora, si suponemos que \(x\in_A m\), entonces existe \(h\colon X\to S\) que
+  hace conmutar al siguiente diagrama
+  \begin{equation}\label{eq:defchi}
+    \begin{tikzcd}[ampersand replacement=\&]
+      X\ar[bend left=20]{rrd}{!_X}\ar[bend right=20]{ddr}[swap]{x}
+        \ar{rd}{h}\\[-2ex]
+      \&[-2ex] S\ar{r}{!_S}\ar[tail]{d}[swap]{m} \& 1\ar{d}{v}\\
+      \& A\ar{r}[swap]{\chi_m} \& \Omega\mathrlap{.}
+    \end{tikzcd}
+  \end{equation}
+  De esto tenemos que la parte 3 de diagrama~\eqref{eq:diagrama} conmuta. Así, el
+  exterior conmuta. Por lo tanto \(\ev(x\times\name{\chi_m})=v_{X\times 1}\).
+  
+  Por el lado contrario, si \(\ev(x\times\name{\chi_m})=v_{X\times 1}\),
+  entonces el exterior del diagrama~\eqref{eq:diagrama} conmuta. Así, la parte 3
+  del mismo diagrama es conmutativa. Esta parte es el exterior del
+  diagrama~\eqref{eq:defchi}. Por lo que podemos usar la propiedad universal del
+  producto fibrado para obtener la existencia de \(h\colon X\to S\) que hace
+  conmutar el diagrama~\eqref{eq:defchi}. Por lo tanto, \(x\in_A m\). 
+\end{solution}
+
+\begin{exercise}[par=2]
+  Demuestra las siguientes leyes exponenciales:
+  \begin{tasks}(2)
+    \task \(A^0=1\)
+    \task \(A^1=A\)
+    \task \(A^{B+C}\cong A^B\times A^C\)
+    \task \(A^{B\times C}\cong (A^B)^C\)
+  \end{tasks}
+  \textit{Sugerencia: usa, sin demostrar, que la biyección generada por la exponencial es natural en todas las entradas y el lema de Grothendieck-Yoneda.}
+\end{exercise}
+
+\begin{exercise}[par=2]
+  Considera la categoría de espacios vectoriales sobre un campo \(k\),
+  \(\cat{Vect}\). Da un ejemplo que muestre que el dual de un espacio no es
+  natural, es decir, que el siguiente diagrama no conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      V\ar{r}{()^*}\ar{d}[swap]{T} \& V^*\\
+      W\ar{r}[swap]{()^*} \& W^*\mathrlap{.}\ar{u}[swap]{T^*}     
+    \end{tikzcd}
+  \end{equation*}
+  Además, muestra que doble dual sí es natural, es decir, que el
+  siguiente diagrama conmuta:
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      V\ar{r}{()^{**}}\ar{d}[swap]{T} \& V^{**}\ar{d}{T^{**}}\\
+      W\ar{r}[swap]{()^{**}} \& W^{**}\mathrlap{.}
+    \end{tikzcd}
+  \end{equation*}
+\end{exercise}
