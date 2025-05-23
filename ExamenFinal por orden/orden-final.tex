@@ -180,54 +180,50 @@
   \end{enumerate}
 
     \section*{Conjuntos (no tan abstractos)}
-    Resuelva los siguientes ejercicios utilizando los axiomas de $\zfc$ vistos en clase (Vacío, Extensionalidad, Par, Unión, Esq. de Separación, Potencia, Infinito)
+    Resuelva los siguientes ejercicios utilizando los axiomas de $\zfc$ vistos en clase (Vacío, Extensionalidad, Vacío, )
     \begin{enumerate}[\bf\text{Ej.} 1.]
     \setcounter{enumi}{13}
-    \item Demuestra que el enunciado $\varphi \leftrightharpoons \forall x\exists y (x\in y \wedge \forall z \forall w ((z\in w \wedge w\in y) \rightarrow z\in y))$ implica el axioma de unión.
-    \textit{Indica claramente cuáles axiomas de $\zfc$ utilizas en la demostración.}
 
     \item Sea $\psi(x)$ una fórmula de la teoría de conjuntos. Demuestre que, si $z:=\{ y \st \exists x \: (\psi(x) \land y \in x) \}$ es un conjunto, entonces $\{x \st \psi(x)\}$ es un conjunto.
     \textit{Indica claramente cuáles axiomas de $\zfc$ utilizas en la demostración.}
 
-   
-    \item Demuestra que toda relación es una unión de funciones.
     \item Sean $f:\omega \to 2$ y $P:=\{ f \upharpoonright n \in \mathscr{P}(\omega \times 2) \st n \in \omega \}$. Demuestra que $(P,\subseteq)$ es un conjunto bien ordenado.
-    
 
-    \item Prueba que $2^\omega$ y $\omega ^ \omega$ son equipotentes.
-    
-    \item Sean $(B,<)$ un conjunto bien ordenado y $x,A$ conjuntos con $x \subseteq A$. Prueba que, si existe $f:B \to A$ sobreyectiva, entonces $x \preccurlyeq B$.
-    
+    \item Demuestra que toda relación es una unión de funciones.
 
-    \item Sea $(A,<)$ una retícula (latiz). Demuestra que si $(A,<)$ no es distributiva, entonces existe un subconjunto $B=\{a,b,c,d,e\} \subseteq A$ de modo que $< \upharpoonright B$ es alguno de los siguientes:
-    \begin{enumerate}
-        \item Diamante: $\{(a,b),(b,e),(a,c),(c,e),(a,d),(d,e),(a,e)\}$
-        \item Pentagono: $\{(a,e),(a,d),(d,e),(a,c),(c,e),(a,b),(b,c),(b,e)\}$
-    \end{enumerate}
+    \item Demuestra que el enunciado $\varphi \leftrightharpoons \forall x\exists y (x\in y \wedge \forall z \forall w ((z\in w \wedge w\in y) \rightarrow z\in y))$ implica el axioma de unión.
+    \textit{Indica claramente cuáles axiomas de $\zfc$ utilizas en la demostración.}
+
+    \item Sean $(B,<)$ un conjunto bien ordenado y $x,A$ conjuntos con $x \subseteq A$. Prueba que, si existe $f:B \to A$ sobreyectiva, entonces $x \preccurlyeq B$.    
+
+    \item Sea $f\colon X\to X$ una función y $A\subseteq X$. Consideremos, mediante el teorema de recursión, la  (única) función $g\colon N\to \mathscr{P}(X)$ de modo que $g(0) = A$ y, para cada $n \in \omega$, $g(s(n)) = g(n)\cup f[g(n)]$.
+    Definimos a los conjuntos $A_*=\bigcup im(g)$, y $A^*= \bigcap\set{B\subseteq X \st A\subseteq B \wedge f[B]\subseteq B}$ (\textit{llamados las cerraduras inferiores y superiores de $A$ bajo $f$, respectivamente}). Demuestra que:
+    $$ A^*=A_* \text{ ,} \quad A\subseteq A^* \quad \text{y} \quad f[A^*]\subseteq A^* $$
 
     \item Pruebe que si un orden parcial $(P,<)$ es fuertemente inductivo, entonces cada $A \subseteq P$ no vacío posee un $<$-minimal.
-    
+
+
     \item Sean $f:X\to \omega$ y $Y\subseteq X$ cualesquiera. Demuestra que si para cada $x\in X$ se satisface la proposición: $\forall y\in X (f(y)<f(x) \to y\in Y) \to x\in Y$, entonces $Y=X$.
-    
-    \item Un conjunto $X$ es \text{Tarski-finito} si y sólo si para cada $A \subseteq \mathscr{P}(X)$ no vacío, existe $y \in A$ de modo que para cada $a \in A$, no ocurre $y \subsetneq a$. Demuestra que todo natural $n \in \omega$ es Tarski-finito.
-   
 
-    \item Sea $X$ un conjunto. Una $\in,X$-cadena es una función $f$ con dominio algún natural $n \in \omega$ que cumple: $f(0) \in X$; y, para cualesquiera $m,k \in n$ con $m<k$, se cumple $f(k) \in f(m)$. 
-    
-    Es un hecho que $C=\bigcup \{ \ima(f) \st f \text{ es} \in,X \text{ cadena}\}$ es un conjunto. Pruebe que $C$ es un conjunto transitivo tal que $X \subseteq C$.
+    \item Un conjunto $X$ es \text{Tarski-finito} si y sólo si para cada $A \subseteq \ms{P}(X)$ no vacío, existe $y \in A$ de modo que para cada $a \in A$, no ocurre $y \subsetneq a$. Demuestra que todo natural $n \in \omega$ es Tarski-finito.
 
+    \item Sean $X$ un conjunto y $f:X \to X$. Demuestre que existe una función $g:\omega \times X \to X$ de modo que para cada $(n,x) \in \omega \times X$ se cumplen $g(0,x)=x$ y $g(s(n),x)=g(n,f(x))$.
+
+    \item Prueba que $2^\omega$ y $\omega ^ \omega$ son equipotentes.
 
     \item Utilizando \textit{únicamente} el Primer Teorema de Recursión (1TR), demuestre que existe una función $F:\omega \to \omega$ de modo que $F(0)=1$; y, para cada $n \in \omega$, $F(s(n))=s(n) \cdot F(n)$.
     
     \hfill \textit{Hint: Considere $X:=\omega \times \omega$ en el 1TR, con el punto inicial $(1,1)$ y defina una dinámica adecuada $g:X \to X$ de modo que al proyectar $g$ a la primera entrada, consiga la función $F$.}
     
-    \item Sean $X$ un conjunto y $f:X \to X$. Demuestre que existe una función $g:\omega \times X \to X$ de modo que para cada $(n,x) \in \omega \times X$ se cumplen $g(0,x)=x$ y $g(s(n),x)=g(n,f(x))$.
-
-    \item Sea $f\colon X\to X$ una función y $A\subseteq X$. Consideremos, mediante el teorema de recursión, la  (única) función $g\colon N\to \mathscr{P}(X)$ de modo que $g(0) = A$ y, para cada $n \in \omega$, $g(s(n)) = g(n)\cup f[g(n)]$.
-    Definimos a los conjuntos $A_*=\bigcup im(g)$, y $A^*= \bigcap\set{B\subseteq X \st A\subseteq B \wedge f[B]\subseteq B}$ (\textit{llamados las cerraduras inferiores y superiores de $A$ bajo $f$, respectivamente}). Demuestra que:
-    $$ A^*=A_* \text{ ,} \quad A\subseteq A^* \quad \text{y} \quad f[A^*]\subseteq A^* $$
+    \item Sea $(A,<)$ una retícula (latiz). Demuestra que si $(A,<)$ no es distributiva, entonces existe un subconjunto $B=\{a,b,c,d,e\} \subseteq A$ de modo que $< \upharpoonright B$ es alguno de los siguientes:
+    \begin{enumerate}
+        \item Diamante: $\{(a,b),(b,e),(a,c),(c,e),(a,d),(d,e),(a,e)\}$
+        \item Pentagono: $\{(a,e),(a,d),(d,e),(a,c),(c,e),(a,b),(b,c),(b,e)\}$
     \end{enumerate}
-
-
-  
+    
+    \item Sea $X$ un conjunto. Una $\in,X$-cadena es una función $f$ con dominio algún natural $n \in \omega$ que cumple: $f(0) \in X$; y, para cualesquiera $m,k \in n$ con $m<k$, se cumple $f(k) \in f(m)$. 
+    
+    Es un hecho que $C=\bigcup \{ \ima(f) \st f \text{ es} \in,X \text{ cadena}\}$ es un conjunto. Pruebe que $C$ es un conjunto transitivo tal que $X \subseteq C$.
+    
+    \end{enumerate}  
 \end{document}
