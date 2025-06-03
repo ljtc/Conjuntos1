@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage[spanish,mexico,shorthands=off]{babel}
+\usepackage[letterpaper, DIV=classic]{typearea}
+\usepackage[T1]{fontenc}
+\usepackage{gfsartemisia}
+\let\iint\relax
+\let\iiint\relax
+\let\iiiint\relax
+\let\idotsint\relax
+\let\openbox\relax
+\usepackage{mathtools}
+\usepackage{eulervm}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{xsim}
+\usepackage{tasks}
+\usepackage{tikz-cd}
+\usepackage{titlesec} %Para cambiar estilo de secciones,subsecciones,etc.
+\usepackage{titling} %Para cambiar estilo de título
+\usepackage{dashrule} %Para hacer líneas punteadas
+\usepackage{comment}
+
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\settasks{label=\textsc{\roman*})}
+
+\SetExerciseParameters{exercise}{
+  exercise-name = EJ,
+  exercise-heading = \paragraph
+}
+
+\DeclareExerciseTagging{teca}
+\DeclareExerciseTagging{par}
+\DeclareExerciseTagging{tezfc}
+\DeclareExerciseTagging{parzfc}
+\xsimsetup{collect}
+
+\DeclareExerciseCollection[teca=2]{ca}
+\DeclareExerciseCollection[tezfc=2]{zfc}
+
+% Para escribir el "tal que" de los conjuntos
+\providecommand\st{\;|\;}
+
+\newcommand\SetSymbol[1][]{%
+    \nonscript\:#1\vert
+    \allowbreak
+    \nonscript\:
+    \mathopen{}}
+    \DeclarePairedDelimiterX\Set[1]\{\}{%
+    \renewcommand\st{\SetSymbol[\delimsize]}
+    #1
+}
+    \DeclarePairedDelimiterX\Class[1]\langle\rangle{%
+    \renewcommand\st{\SetSymbol[\delimsize]}
+    #1
+}
+
+%Comandos que utilizamos
+\DeclarePairedDelimiter{\name}{\ulcorner}{\urcorner}
+\newcommand{\ev}{\mathrm{ev}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\topos}[1]{\mathscr{#1}}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\op}{{}^{\mathrm{op}}}
+\newcommand{\leqop}{\leq^{\mathrm{op}}}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\zfc}{\text{\textsf{\small ZFC}}}
+
+\newcommand{\pts}[1]{%
+  \ifthenelse{\equal{#1}{1}}{\hfill \textbf{(#1 pt)}}{\hfill\textbf{(#1 pts)}}
+}
+
+\newcommand{\noloc}{%
+  \nobreak
+  \mspace{6mu plus 1mu}
+  {:}
+  \nonscript\mkern-\thinmuskip
+  \mathpunct{}
+  \mspace{2mu}
+}
+
+\DeclareMathOperator{\ima}{ima}
+\DeclareMathOperator{\dom}{dom}
+
+%Estilo de secciones
+\titleformat*{\section}{\raggedleft\bfseries\Large}
+\titleformat*{\subsection}{\raggedleft\bfseries\large}
+
+%Estilo de título
+\pretitle{\begin{center}\fontfamily{lmdh}\huge\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+
+\begin{document}   
+
+  \begin{center}
+   \Huge \textbf{Idea de Final} \\
+  \end{center}
+
+  \begin{flushright}
+   \footnotesize Profesor: Luis Jesús Trucio Cuevas. \hfill Ayudantes: Jesús Angel Cabrera Labastida,\\
+   \hfill Hugo Víctor García Martínez.
+  \end{flushright}
+
+  \section*{Conjuntos Abstractos}
+    Los ejercicios de esta sección se deben resolver en la categoría de conjuntos abstractos, \(\topos{S}\), a menos que se indique lo contrario.
+
+    \begin{enumerate}[\bf\text{Ej.} 1.]
+    \item Pruebe que $\ms{S}$ es una categoría balanceada; esto es, para cualquier flecha $f:A \to B$ se tiene que $f$ es isomorfismo si y solo si $f$ es monomorfismo y epimorfismo.
+    
+    \item Sean $\ms{C}$ una categoría localamente pequeña y $A,B$ objetos de $\ms{C}$. Utilizando el Lema de Grothendieck - Yoneda, demuestre que si $\ms{C}(-,A) \cong \ms{C}(-,B)$, entonces $A \cong B$.
+    
+    \item Sea $(A \xrightarrow{f} B) \in \ms{S}$. Demuestre que $f$ es epimorfismo si y sólo si $\Omega^f$ es monomorfismo.
+    
+    
+    \end{enumerate}
+
+    \section*{ZFC}
+    Resuelva los siguientes ejercicios utilizando los axiomas de $\zfc$ vistos en clase (Vacío, Extensionalidad, Par, Unión, Esq. de Separación, Potencia, Infinito)
+
+    \begin{enumerate}[\bf\text{Ej.} 1.]
+    \setcounter{enumi}{3}
+
+    \item Demuestra que el enunciado $\varphi \leftrightharpoons \forall x\exists y (x\in y \wedge \forall z \forall w ((z\in w \wedge w\in y) \rightarrow z\in y))$ implica el axioma de unión.
+    
+    \item Sea $X$ un conjunto de números naturales. Determine cuáles de las siguientes implicaciones son verdaderas. Justifique con demostración o contraejemplo.
+    \begin{enumerate}
+        \item Si $X$ es transitivo, entonces $X$ es natural.
+        \item Si $X$ es no vacío, entonces $\bigcap X = \min_\in (X)$.
+    \end{enumerate}
+
+    \item Demuestre que hay una biyección entre $3^\omega$ y $\omega^\omega$.
+
+    \end{enumerate}
+  
+\end{document}
